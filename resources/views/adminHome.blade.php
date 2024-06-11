@@ -31,13 +31,16 @@
                         <a class="nav-link" href="#" onclick="showDashboardContent('email_reminder'); return false;">{{ __('Email Reminder') }}</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#" onclick="showDashboardContent('view_reports'); return false;">{{ __('View Reports') }}</a>
+                        <a class="nav-link" href="" onclick="showDashboardContent('view_reports'); return false;">{{ __('View Reports') }}</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#" onclick="showDashboardContent('view_form'); return false;">{{ __('View Form') }}</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#" onclick="showDashboardContent('users_sched'); return false;">{{ __('Users Schedule') }}</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/kiosk">{{ __('Go to Kiosk') }}</a>
                     </li>
                 </ul>
                 <!-- End Navigation Links -->
