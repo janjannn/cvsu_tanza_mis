@@ -1,6 +1,4 @@
-@extends('layouts.app')
 
-@section('content')
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-17">
@@ -651,7 +649,7 @@
 
 
 
-                    <button type="submit" class="btn btn-primary ms-3">
+                    <button type="submit" class="btn btn-success">
                         {{ __('Add') }}
                     </button>
 
@@ -663,4 +661,4 @@
         </div>
     </div>
 </div>
-@endsection
+

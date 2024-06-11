@@ -1,9 +1,7 @@
-@extends('layouts.app')
 
-@section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-11">
+        <div class="col-md-15">
             <div class="card">
                 <div class="card-header">
                     <div class="row">
@@ -50,11 +48,11 @@
                                             <div class="accordion-body d-flex justify-content-between align-items-center">
                                                 <a href="/report/view/{{$report->id}}">
                                                     <strong>
-                                                        
+
                                                         "",
                                                         $yearDisplay = $years[($report->year)-1]->year,
                                                         $quarterDisplay = $years[($report->year)-1]->quarter,
-                                                        
+
                                                         Year {{$yearDisplay}} Quarter {{$quarterDisplay}}
                                                     </strong>
                                                 </a>
@@ -144,4 +142,3 @@
         window.location.href = `/report/print/${id}`;
     }
 </script>
-@endsection
