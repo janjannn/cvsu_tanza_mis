@@ -1,7 +1,11 @@
-
+@extends('layouts.app')
+<br>
+<br>
+<br>
+<br>
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-17">
+        <div class="col-md-11">
             <div class="card">
                 <div class="card-header" style="background-color: #AD88C6;">
                     <div class="row">
@@ -649,7 +653,7 @@
 
 
 
-                    <button type="submit" class="btn btn-outline-success">
+                    <button type="submit" class="btn btn-primary ms-3">
                         {{ __('Add') }}
                     </button>
 
@@ -661,4 +665,5 @@
         </div>
     </div>
 </div>
+
 

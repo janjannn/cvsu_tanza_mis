@@ -30,7 +30,7 @@
             <nav class="navbar navbar-expand-md fixed-top navbar-light bg-white shadow-sm">
                 <div class="container">
                     <a class="navbar-brand" href="{{ url('/kiosk') }}">
-                        <img src="{{ asset('imgs/cvsulogo.png') }}" style="width: 45px; height: 45px; margin-right: 10px;">
+                        <img src="{{ asset('imgs/tanza.png') }}" style="width: 45px; height: 45px; margin-right: 10px;">
                         KioskState
                     </a>
                     <!--Go back button -->
@@ -44,7 +44,7 @@
                     <div class="col-md-12">
                         <div class="jumbotron text-center" style="margin-top: 190px;">
                             <h1 class="display-4">Cavite State University<br>Tanza Campus <br>Kiosk State<br>System</h1>
-                            <a class="btn btn-success btn-lg" style="margin-top: 60px;" href="#">Get Started</a>
+                            <a class="btn btn-success btn-lg" style="margin-top: 60px;" href="{{ url('/landing') }}">Get Started</a>
                         </div>
                     </div>
                 </div>

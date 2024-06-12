@@ -20,6 +20,14 @@ Route::get('/', function () {
 Route::get('/kiosk', function () {
     return view('kiosk');
 });
+Route::get('/landing', function () {
+    return view('landing');
+});
+Route::get('/dashboard', function () {
+    return view('dashboard');
+});
+
+
 
 
 

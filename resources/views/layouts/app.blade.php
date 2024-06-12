@@ -22,13 +22,20 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
+    <style>
+        /* Custom Styles */
+        .margin-top-fix {
+            margin-top: 70px; /* Adjust the value as needed */
+        }
+    </style>
 </head>
 <body>
     <div id="app">
         <nav class="navbar navbar-expand-md fixed-top navbar-light bg-white shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    <img src="{{ asset('imgs/cvsulogo.png') }}" style="width: 45px; height: 45px; margin-right: 10px;">
+                    <img src="{{ asset('imgs/tanza.png') }}" style="width: 45px; height: 45px; margin-right: 10px;">
                     CvSU Tanza MIS
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
@@ -90,7 +97,7 @@
             </div>
         </nav>
 
-        <main class="py-4" style="margin-top: 70px">
+        <main class="py-4 margin-top-fix">
             @yield('content')
         </main>
     </div>
