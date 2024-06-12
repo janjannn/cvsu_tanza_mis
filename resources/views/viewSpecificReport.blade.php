@@ -5,22 +5,22 @@
         <div class="row justify-content-center">
             <div class="col-md-11">
                 <div class="card">
-                    <div class="card-header">
+                    <div class="card-header" style="background-color: #AD88C6;">
                         <div class="row">
                             <div class="col-md-9">
                                 Quarterly Report Form
                             </div>
                         </div>
                     </div>
-                    <!-- 
+                    <!--
                     --------------------------------------------------------Curriculum----------------------------------------
                     -->
                     @csrf
-                    
+
                     @if ($userDesignation == "Curriculum" || $userDesignation == "Admin")
                         <div class="card-body">
                             <div class="card">
-                                <div class="card-header">
+                                <div class="card-header" style="background-color: #AD88C6;">
                                     I. Curriculum
                                 </div>
                                 <div class="card-body">
@@ -29,7 +29,7 @@
                                     <table id="IA" class="table">
                                         <thead>
                                             <th>Program</th>
-                                            
+
                                             <th>Visit Dates</th>
                                             <th>Level Applied</th>
                                         </thead>
@@ -99,13 +99,13 @@
                     @endif
 
 
-                     <!-- 
+                     <!--
                     --------------------------------------------------OSAS-----------------------------------------------
                     -->
                     @if ($userDesignation == "OSAs" || $userDesignation == "Admin")
                     <div class="card-body">
                         <div class="card">
-                            <div class="card-header">
+                            <div class="card-header" style="background-color: #AD88C6;">
                                 II. Student Profile
                             </div>
                             <div class="card-body">
@@ -185,43 +185,28 @@
                                         <th>Number of Scholars</th>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            @foreach($program_IID as $scholarships_student)
-                                                         '',$academic = $scholarships_student->academic
-                                                         '',$assistance = $scholarships_student->assistance
-                                                         '',$government = $scholarships_student->government
-                                                         '',$service = $scholarships_student->service
-                                                         '',$private = $scholarships_student->private   
-                                            @endforeach
-                                            <td>Academic Scholarship</td>
-                                            <td>
-                                                {{ $academic}}
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Financial Assistance</td>
-                                            <td>
-                                                {{$assistance}}
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Government</td>
-                                            <td>
-                                                {{$government}}
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Service Scholarship</td>
-                                            <td>
-                                                {{$service}}
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Private Scholarship</td>
-                                            <td>
-                                                {{$private}}
-                                            </td>
-                                        </tr>
+                                        @foreach($program_IID as $scholarships_student)
+                                            <tr>
+                                                <td>Academic Scholarship</td>
+                                                <td>{{ $scholarships_student->academic }}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Financial Assistance</td>
+                                                <td>{{ $scholarships_student->assistance }}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Government</td>
+                                                <td>{{ $scholarships_student->government }}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Service Scholarship</td>
+                                                <td>{{ $scholarships_student->service }}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Private Scholarship</td>
+                                                <td>{{ $scholarships_student->private }}</td>
+                                            </tr>
+                                        @endforeach
                                     </tbody>
                                 </table>
                                 <br>
@@ -277,12 +262,12 @@
                     </div>
                     @endif
 
-                    <!-- 
+                    <!--
                     -----------------------------------------------------Faculty ------------------------------------------------------
                     -->
                     <div class="card-body">
                         <div class="card">
-                            <div class="card-header">
+                            <div class="card-header" style="background-color: #AD88C6;">
                                 III. Faculty and Staff Profile
                             </div>
                             <div class="card-body">
@@ -425,15 +410,15 @@
                             </div>
                         </div>
                     </div>
-                    
-                    <!-- 
+
+                    <!--
                     ---------------------------------------------OSAs----------------------------------------------
                     -->
 
                     @if ($userDesignation == "OSAs" || $userDesignation == "Admin")
                     <div class="card-body">
                         <div class="card">
-                            <div class="card-header">
+                            <div class="card-header" style="background-color: #AD88C6;">
                                 IV. Student Development
                             </div>
                             <div class="card-body">
@@ -461,7 +446,7 @@
 
                     <div class="card-body">
                         <div class="card">
-                            <div class="card-header">
+                            <div class="card-header" style="background-color: #AD88C6;">
                                 V. Research
                             </div>
                             <div class="card-body">
@@ -532,15 +517,15 @@
                             </div>
                         </div>
                     </div>
-                    
-                     <!-- 
-                    --------------------------------------------Extension------------------------------------- 
+
+                     <!--
+                    --------------------------------------------Extension-------------------------------------
                     -->
 
                     @if ($userDesignation == "Extension" || $userDesignation == "Admin")
                     <div class="card-body">
                         <div class="card">
-                            <div class="card-header">
+                            <div class="card-header" style="background-color: #AD88C6;">
                                 VI. Extension
                             </div>
                             <div class="card-body">
@@ -597,14 +582,14 @@
                     </div>
                     @endif
 
-                    <!-- 
-                    ----------------------------------------------------EBA---------------------------------------------- 
+                    <!--
+                    ----------------------------------------------------EBA----------------------------------------------
                     -->
 
                     @if ($userDesignation == "EBA" || $userDesignation == "Admin")
                     <div class="card-body">
                         <div class="card">
-                            <div class="card-header">
+                            <div class="card-header" style="background-color: #AD88C6;">
                                 VII. Linkages and Fund Generation
                             </div>
                             <div class="card-body">
@@ -656,7 +641,7 @@
                     @if($userDesignation == "Custodian" || $userDesignation == "Admin")
                     <div class="card-body">
                         <div class="card">
-                            <div class="card-header">
+                            <div class="card-header" style="background-color: #AD88C6;">
                                 VIII. Infrastructure Development
                             </div>
                             <div class="card-body">
@@ -688,7 +673,7 @@
                 </div>
             </div>
         </div>
-        
+
     </div>
 @endsection
 

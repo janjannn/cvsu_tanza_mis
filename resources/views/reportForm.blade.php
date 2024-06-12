@@ -3,7 +3,7 @@
     <div class="row justify-content-center">
         <div class="col-md-17">
             <div class="card">
-                <div class="card-header">
+                <div class="card-header" style="background-color: #AD88C6;">
                     <div class="row">
                         <div class="col-md-9">
                             Quarterly Report Form
@@ -20,7 +20,7 @@
                     @if (Auth::user()->designation == "Curriculum" || Auth::user()->designation == "Admin")
                     <div class="card-body">
                         <div class="card">
-                            <div class="card-header">
+                            <div class="card-header" style="background-color: #AD88C6;">
                                 I. Curriculum
                             </div>
                             <div class="card-body">
@@ -87,7 +87,7 @@
                     @if (Auth::user()->designation == "OSAs" || Auth::user()->designation == "Admin")
                     <div class="card-body">
                         <div class="card">
-                            <div class="card-header">
+                            <div class="card-header" style="background-color: #AD88C6;">
                                 II. Student Profile
                             </div>
                             <div class="card-body">
@@ -228,7 +228,7 @@
                     -->
                     <div class="card-body">
                         <div class="card">
-                            <div class="card-header">
+                            <div class="card-header" style="background-color: #AD88C6;">
                                 III. Faculty and Staff Profile
                             </div>
                             <div class="card-body">
@@ -430,7 +430,7 @@
                     @if (Auth::user()->designation == "OSAs" || Auth::user()->designation == "Admin")
                     <div class="card-body">
                         <div class="card">
-                            <div class="card-header">
+                            <div class="card-header" style="background-color: #AD88C6;">
                                 IV. Student Development
                             </div>
                             <div class="card-body">
@@ -456,7 +456,7 @@
 
                     <div class="card-body">
                         <div class="card">
-                            <div class="card-header">
+                            <div class="card-header" style="background-color: #AD88C6;">
                                 V. Research
                             </div>
                             <div class="card-body">
@@ -521,7 +521,7 @@
                     @if (Auth::user()->designation == "Extension" || Auth::user()->designation == "Admin")
                     <div class="card-body">
                         <div class="card">
-                            <div class="card-header">
+                            <div class="card-header" style="background-color: #AD88C6;">
                                 VI. Extension
                             </div>
                             <div class="card-body">
@@ -573,7 +573,7 @@
                     @if (Auth::user()->designation == "EBA" || Auth::user()->designation == "Admin")
                     <div class="card-body">
                         <div class="card">
-                            <div class="card-header">
+                            <div class="card-header" style="background-color: #AD88C6;">
                                 VII. Linkages and Fund Generation
                             </div>
                             <div class="card-body">
@@ -621,7 +621,7 @@
                     @if(Auth::user()->designation == "Custodian" || Auth::user()->designation == "Admin")
                     <div class="card-body">
                         <div class="card">
-                            <div class="card-header">
+                            <div class="card-header" style="background-color: #AD88C6;">
                                 VIII. Infrastructure Development
                             </div>
                             <div class="card-body">
@@ -649,7 +649,7 @@
 
 
 
-                    <button type="submit" class="btn btn-success">
+                    <button type="submit" class="btn btn-outline-success">
                         {{ __('Add') }}
                     </button>
 

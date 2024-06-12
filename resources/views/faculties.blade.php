@@ -3,7 +3,7 @@
     <div class="row justify-content-center">
         <div class="col-md-11">
             <div class="card">
-                <div class="card-header">
+                <div class="card-header" style="background-color: #AD88C6;">
                     <li class="nav-item nav-link text-black">{{ __('List of Faculties') }}</li>
                 </div>
                 <div class="card-body">
@@ -70,7 +70,7 @@
                                     <select class="custom-select" id="desig{{ $user->id }}" name="designation">
                                         <option value="none">None</option>
                                         @foreach ($designations as $designation)
-                                            @if($designation->value == $user->designation) 
+                                            @if($designation->value == $user->designation)
                                                 <option selected value="{{ $designation->value}}">{{ $designation->name }}</option>
                                             @else
                                                 <option value="{{ $designation->value}}">{{ $designation->name }}</option>
