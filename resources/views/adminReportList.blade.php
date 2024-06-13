@@ -3,7 +3,7 @@
     <div class="row justify-content-center">
         <div class="col-md-11">
             <div class="card">
-                <div class="card-header">
+                <div class="card-header" style="background-color: #AD88C6;">
                     <div class="row">
                         <div class="col-md-9">
                             Submitted Report List

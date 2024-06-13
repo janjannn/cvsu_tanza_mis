@@ -22,6 +22,23 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
+    <style>
+        @keyframes textReveal {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .reveal {
+            animation: textReveal 1s ease-in-out;
+        }
+    </style>
 </head>
 
 <body>
@@ -35,16 +52,14 @@
                     </a>
                     <!--Go back button -->
                     <a class="nav-link" href="{{ route('admin.home') }}">{{ __('Go back') }}</a>
-
-
                 </div>
             </nav>
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
                         <div class="jumbotron text-center" style="margin-top: 190px;">
-                            <h1 class="display-4">Cavite State University<br>Tanza Campus <br>Kiosk State<br>System</h1>
-                            <a class="btn btn-success btn-lg" style="margin-top: 60px;" href="{{ url('/landing') }}">Get Started</a>
+                            <h1 class="display-4 reveal">Cavite State University<br>Tanza Campus <br>Kiosk State<br>System</h1>
+                            <a class="btn btn-success btn-lg reveal" style="margin-top: 60px;" href="{{ url('/landing') }}">Get Started</a>
                         </div>
                     </div>
                 </div>

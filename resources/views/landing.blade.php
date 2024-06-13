@@ -60,7 +60,7 @@
                     KioskState
                 </a>
                 <!--Go back button -->
-                <a class="nav-link" href="{{ route('admin.home') }}">{{ __('Go back') }}</a>
+                <a class="nav-link" href="{{ url('/kiosk') }}">Go back</a>
             </div>
         </nav>
     </div>
