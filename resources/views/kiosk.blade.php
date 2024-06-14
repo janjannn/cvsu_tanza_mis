@@ -59,7 +59,7 @@
                     <div class="col-md-12">
                         <div class="jumbotron text-center" style="margin-top: 190px;">
                             <h1 class="display-4 reveal">Cavite State University<br>Tanza Campus <br>Kiosk State<br>System</h1>
-                            <a class="btn btn-success btn-lg reveal" style="margin-top: 60px;" href="{{ url('/landing') }}">Get Started</a>
+                            <a class="btn btn-success btn-lg reveal" style="margin-top: 60px;" href="{{ url('/dashboard') }}">Get Started</a>
                         </div>
                     </div>
                 </div>

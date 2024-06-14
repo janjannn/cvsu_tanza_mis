@@ -67,7 +67,7 @@
     .login-container .google-btn {
         margin-top: 20px;
         width: 100%;
-        padding: 10px;
+        padding: 5px;
         border: none;
         border-radius: 5px;
         font-size: 16px;
@@ -82,11 +82,12 @@
     }
 
     .login-container .google-btn {
-        background: #4285f4; /* Google button background color */
+        background: #7a1f7c; /* Google button background color */
         color: white;
     }
 
     .login-container .google-btn img {
+        margin-top: 7px;
         margin-right: 10px;
         width: 20px; /* Set width of the Google logo */
         height: 16px; /* Set height of the Google logo */
