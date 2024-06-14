@@ -31,9 +31,10 @@
     .login-container {
         animation: loginReveal 1s ease-in-out;
         position: absolute;
-        right: 200px;
-        top: 190px;
-        width: 350px;
+        right: 150px;
+        top: 150px;
+        width: 90%;
+        max-width: 350px;
         padding: 20px;
         background: rgba(255, 0, 102, 0.2); /* Semi-transparent background */
         border-radius: 15px;
@@ -62,15 +63,33 @@
         color: #000; /* Ensure text is visible */
     }
 
-    .login-container button {
-        margin-top: 50px;
+    .login-container button,
+    .login-container .google-btn {
+        margin-top: 20px;
         width: 100%;
         padding: 10px;
         border: none;
         border-radius: 5px;
+        font-size: 16px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .login-container button {
         background: #7a1f7c;
         color: white;
-        font-size: 16px;
+    }
+
+    .login-container .google-btn {
+        background: #4285f4; /* Google button background color */
+        color: white;
+    }
+
+    .login-container .google-btn img {
+        margin-right: 10px;
+        width: 20px; /* Set width of the Google logo */
+        height: 16px; /* Set height of the Google logo */
     }
 
     .login-container a {
@@ -83,6 +102,22 @@
     .login-container .links {
         display: flex;
         justify-content: space-between;
+    }
+
+    @media (max-width: 768px) {
+        .login-container {
+            right: 50%;
+            transform: translateX(50%);
+            top: 100px;
+        }
+    }
+
+    @media (max-width: 576px) {
+        .login-container {
+            width: 100%;
+            padding: 10px;
+            top: 50px;
+        }
     }
 </style>
 <div class="container">
@@ -127,6 +162,10 @@
                     </div>
 
                     <button type="submit">{{ __('Login') }}</button>
+                    <a href="{{ url('/auth/google') }}" class="google-btn">
+                        <img src="{{ asset('imgs/google.png') }}" alt="Google Logo">
+                        <span>Sign in with CvSU Google Account</span>
+                    </a>
                 </form>
             </div>
         </div>

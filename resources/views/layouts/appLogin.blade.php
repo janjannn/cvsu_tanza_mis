@@ -24,8 +24,8 @@
         <nav class="navbar navbar-fixed-top navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    <img src="{{ asset('imgs/cvsulogo.png') }}" style="width:50px; height: 50px; margin-right: 10px;">
-                    CvSU Tanza Report
+                    <img src="{{ asset('imgs/tanza.png') }}" style="width:50px; height: 50px; margin-right: 10px;">
+                    CvSU Tanza MIS
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
