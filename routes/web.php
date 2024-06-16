@@ -26,6 +26,18 @@ Route::get('/landing', function () {
 Route::get('/dashboard', function () {
     return view('dashboard');
 });
+Route::get('/organization', function () {
+    return view('organization');
+});
+Route::get('/history', function () {
+    return view('history');
+});
+Route::get('/facultymembers', function () {
+    return view('facultymembers');
+});
+Route::get('/map', function () {
+    return view('map');
+});
 
 
 

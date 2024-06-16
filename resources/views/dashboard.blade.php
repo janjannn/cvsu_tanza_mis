@@ -18,14 +18,16 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
     <!-- Fonts -->
-    <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: Poppins;
             background-color: #d8a5e0; /* Light purple background */
             display: flex;
             justify-content: center;
@@ -41,6 +43,7 @@
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 20px;
+            column-gap: 200px;
         }
 
         .container div {
@@ -60,7 +63,6 @@
             height: 50px;
             margin-bottom: 10px;
         }
-
         .search-container {
             display: flex;
             justify-content: center;
@@ -92,49 +94,49 @@
 
 <body>
 <div class="container">
-    <div>
-        <img src="https://via.placeholder.com/50" alt="CVSU-Tanza">
+    <div style="cursor: pointer;" onclick="window.location.href='{{ url('/landing') }}'">
+        <img src="{{ asset('imgs/info.png') }}" alt="CVSU-Tanza">
         <p>CVSU-Tanza</p>
     </div>
-    <div>
-        <img src="https://via.placeholder.com/50" alt="Organizational Chart">
+    <div style="cursor: pointer;" onclick="window.location.href='{{ url('/organization') }}'">
+        <img src="{{ asset('imgs/orgchart.png') }}" alt="CVSU-Tanza">
         <p>Organizational Chart</p>
     </div>
-    <div>
-        <img src="https://via.placeholder.com/50" alt="Organizations">
+    <div style="cursor: pointer;" onclick="window.location.href='{{ url('/organization') }}'">
+        <img src="{{ asset('imgs/org.png') }}" alt="CVSU-Tanza">
         <p>Organizations</p>
     </div>
-    <div>
-        <img src="https://via.placeholder.com/50" alt="Academic">
+    <div style="cursor: pointer;" onclick="window.location.href='{{ url('/organization') }}'">
+        <img src="{{ asset('imgs/acad.png') }}" alt="CVSU-Tanza">
         <p>Academic</p>
     </div>
-    <div>
-        <img src="https://via.placeholder.com/50" alt="News">
+    <div style="cursor: pointer;" onclick="window.location.href='{{ url('/organization') }}'">
+        <img src="{{ asset('imgs/mega.png') }}" alt="CVSU-Tanza">
         <p>News</p>
     </div>
-    <div>
-        <img src="https://via.placeholder.com/50" alt="Announcements">
-        <p>Announcements</p>
+    <div style="cursor: pointer;" onclick="window.location.href='{{ url('/organization') }}'">
+        <img src="{{ asset('imgs/announce.png') }}" alt="CVSU-Tanza">
+        <p>Announcement</p>
     </div>
-    <div>
-        <img src="https://via.placeholder.com/50" alt="Seminars">
+    <div style="cursor: pointer;" onclick="window.location.href='{{ url('/organization') }}'">
+        <img src="{{ asset('imgs/seminar.png') }}" alt="CVSU-Tanza">
         <p>Seminars</p>
     </div>
-    <div>
-        <img src="https://via.placeholder.com/50" alt="Trainings">
+    <div style="cursor: pointer;" onclick="window.location.href='{{ url('/organization') }}'">
+        <img src="{{ asset('imgs/training.png') }}" alt="CVSU-Tanza">
         <p>Trainings</p>
     </div>
-    <div>
-        <img src="https://via.placeholder.com/50" alt="Class Schedule">
+    <div style="cursor: pointer;" onclick="window.location.href='{{ url('/organization') }}'">
+        <img src="{{ asset('imgs/class.png') }}" alt="CVSU-Tanza">
         <p>Class Schedule</p>
     </div>
-    <div>
-        <img src="https://via.placeholder.com/50" alt="DTR">
+    <div style="cursor: pointer;" onclick="window.location.href='{{ url('/organization') }}'">
+        <img src="{{ asset('imgs/dtr.png') }}" alt="CVSU-Tanza">
         <p>DTR</p>
     </div>
-    <div>
-        <img src="https://via.placeholder.com/50" alt="FAQs">
-        <p>FAQs</p>
+    <div style="cursor: pointer;" onclick="window.location.href='{{ url('/organization') }}'">
+        <img src="{{ asset('imgs/question.png') }}" alt="CVSU-Tanza">
+        <p>FAQ's</p>
     </div>
 </div>
 </body>
