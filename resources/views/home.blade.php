@@ -24,5 +24,9 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('report.form') }}" onclick="showDashboardContent('Submit Report'); return false;">{{ __('Submit Report') }}</a>
                 </li>
+            <ul class="nav flex-column">
+                <li class="nav-item">
+                    <a class="nav-link" href="/kiosk">{{ __('Go to Kiosk') }}</a>
+                </li>
         </div>
 @endsection
