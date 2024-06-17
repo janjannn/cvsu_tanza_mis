@@ -38,6 +38,9 @@ Route::get('/facultymembers', function () {
 Route::get('/map', function () {
     return view('map');
 });
+Route::get('/org', function () {
+    return view('org');
+});
 
 
 
