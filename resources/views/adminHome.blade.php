@@ -12,7 +12,6 @@
                 </h5>
                 <!-- End Dashboard Header -->
 
-
                 <!-- Navigation Links -->
                 <ul class="nav flex-column">
                     <li class="nav-item">
@@ -56,7 +55,7 @@
 
             <div class="card">
                 <div class="card-body" id="dashboardContent">
-                    Still in Progress
+                    @include('stats')
                 </div>
             </div>
         </main>
@@ -104,7 +103,7 @@
                 break;
             default:
                 dashboardTitle.innerText = 'Dashboard';
-                dashboardContent.innerHTML = '<h3>No Content Available</h3>';
+                displayDashboard();
         }
     }
 
@@ -118,5 +117,27 @@
                 console.error('Error:', error);
             });
     }
+
+    function displayDashboard() {
+        let dashboardContent = document.getElementById('dashboardContent');
+        let dashboardTitle = document.getElementById('dashboardTitle');
+        dashboardTitle.innerText = 'Dashboard';
+
+        // Fetch dashboard statistics
+        fetch('{{ route('dashboard.stats') }}')
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('totalFaculties').innerText = data.totalFaculties;
+                document.getElementById('totalDesignations').innerText = data.totalDesignations;
+                document.getElementById('totalReports').innerText = data.totalReports;
+                document.getElementById('totalForms').innerText = data.totalForms;
+            })
+            .catch(error => {
+                console.error('Error fetching dashboard statistics:', error);
+            });
+    }
+
+    // Display the main dashboard by default
+    displayDashboard();
 </script>
 @endsection

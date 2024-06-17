@@ -42,6 +42,23 @@ Route::get('/org', function () {
     return view('org');
 });
 
+// web.php
+
+Route::get('/dashboard/stats', function() {
+    // Fetch the required statistics from the database
+    $totalFaculties = \App\Models\Faculty::count();
+    $totalDesignations = \App\Models\Designation::count();
+    $totalReports = \App\Models\Report::count();
+    $totalForms = \App\Models\Form::count();
+
+    return response()->json([
+        'totalFaculties' => $totalFaculties,
+        'totalDesignations' => $totalDesignations,
+        'totalReports' => $totalReports,
+        'totalForms' => $totalForms,
+    ]);
+})->name('dashboard.stats');
+
 
 
 
