@@ -48,7 +48,7 @@
         }
 
         .search-container {
-            
+
             display: flex;
             margin-right: 90px;
         }
@@ -185,7 +185,7 @@
             <img src="{{ asset('imgs/class.png') }}" alt="CVSU-Tanza">
             <p>Class Schedule</p>
         </div>
-        <div style="cursor: pointer;" onclick="window.location.href='{{ url('/organization') }}'">
+        <div style="cursor: pointer;" onclick="window.location.href='{{ url('/dtr') }}'">
             <img src="{{ asset('imgs/dtr.png') }}" alt="CVSU-Tanza">
             <p>DTR</p>
         </div>

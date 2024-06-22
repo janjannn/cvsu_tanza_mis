@@ -41,6 +41,15 @@ Route::get('/map', function () {
 Route::get('/org', function () {
     return view('org');
 });
+Route::get('/dtr', function () {
+    return view('dtr');
+});
+
+
+// web.php
+Route::get('/timein/{id}', [TimeController::class, 'timeIn']);
+Route::get('/timeout/{id}', [TimeController::class, 'timeOut']);
+Route::get('/print-dtr/{id}', [TimeController::class, 'printDTR']);
 
 // web.php
 
