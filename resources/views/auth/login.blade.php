@@ -36,10 +36,10 @@
         width: 90%;
         max-width: 350px;
         padding: 20px;
-        background: rgba(255, 0, 102, 0.2); /* Semi-transparent background */
+        background: rgba(255, 0, 255, 0.5); /* Semi-transparent background */
         border-radius: 15px;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
-        color: rgb(0, 0, 0);
+        color: white;
     }
 
     .login-container img {
@@ -51,6 +51,7 @@
     .login-container h2 {
         text-align: center;
         margin-bottom: 20px;
+        color: white;
     }
 
     .login-container input[type="email"],
@@ -94,7 +95,7 @@
     }
 
     .login-container a {
-        color: rgb(0, 0, 0);
+        color: white;
         text-decoration: none;
         display: inline-block;
         margin-top: 2px;
@@ -120,12 +121,25 @@
             top: 50px;
         }
     }
+    .background-image {
+        background-image: url('{{ asset('imgs/logooo.jpg') }}'); /* Replace 'background.jpg' with your image path */
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1; /* Ensure the background stays behind other content */
+    }
 </style>
+<div class="background-image"></div>
 <div class="container">
     <div class="row">
         <div class="col-md-8">
             <div class="jumbotron" style="margin-top: 190px;">
-                <h1 class="display-4 reveal">CvSU Tanza <br>Management Information <br>System</h1>
+                <h1 class="display-4 reveal" style="color: white; font-size: 4.5rem;">CvSU Tanza <br>Management Information <br>System</h1>
             </div>
         </div>
         <div class="col-md-4">

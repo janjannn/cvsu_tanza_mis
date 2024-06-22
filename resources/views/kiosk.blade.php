@@ -38,6 +38,36 @@
         .reveal {
             animation: textReveal 1s ease-in-out;
         }
+        
+        .btn-container {
+            margin-top: 50vh;
+            text-align: center;
+            transform: translateY(-50%);
+        }
+
+        .btn-container button {
+            margin: 20px;
+            padding: 80px 130px;
+            font-size: 24px;
+            border-width: 3px;
+            background-color: rgba(46, 139, 87, 0.8); /* Semi-transparent green color */
+            color: white; /* Text color */
+            border-color: rgba(46, 139, 87, 0.8); /* Border color */
+        }
+
+        .btn-container button:hover {
+            background-color: rgba(46, 139, 87, 1); /* Fully opaque green color on hover */
+            border-color: rgba(46, 139, 87, 1); /* Border color on hover */
+        }
+
+        body {
+            background-image: url('{{ asset('imgs/logooo.jpg') }}'); /* Replace 'background.jpg' with your image path */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            height: 100vh; /* Full viewport height */
+            overflow: hidden; /* Prevent scrolling */
+        }
     </style>
 </head>
 
@@ -50,21 +80,30 @@
                         <img src="{{ asset('imgs/tanza.png') }}" style="width: 45px; height: 45px; margin-right: 10px;">
                         KioskState
                     </a>
-                    <!--Go back button -->
+                    <!-- Go back button -->
                     <a class="nav-link" href="{{ route('admin.home') }}">{{ __('Go back') }}</a>
                 </div>
             </nav>
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="jumbotron text-center" style="margin-top: 190px;">
-                            <h1 class="display-4 reveal">Cavite State University<br>Tanza Campus <br>Kiosk State<br>System</h1>
-                            <a class="btn btn-success btn-lg reveal" style="margin-top: 60px;" href="{{ url('/dashboard') }}">Get Started</a>
-                        </div>
-                    </div>
-                </div>
+            <div class="container btn-container">
+                <button id="faculty-btn" class="btn btn-success">Faculty</button>
+                <button id="students-btn" class="btn btn-success">Students</button>
+                <button id="visitor-btn" class="btn btn-success">Visitor</button>
             </div>
         </div>
     </div>
+
+    <script>
+        document.getElementById('faculty-btn').addEventListener('click', function() {
+            window.location.href = '{{ url("/dashboard") }}';
+        });
+
+        document.getElementById('students-btn').addEventListener('click', function() {
+            window.location.href = '{{ url("/dashboard") }}';
+        });
+
+        document.getElementById('visitor-btn').addEventListener('click', function() {
+            window.location.href = '{{ url("/dashboard") }}';
+        });
+    </script>
 </body>
 </html>
