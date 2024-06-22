@@ -48,7 +48,6 @@
         }
 
         .search-container {
-
             display: flex;
             margin-right: 90px;
         }
@@ -149,6 +148,10 @@
         <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
     </div>
     <div class="container">
+        @php
+            $user = request()->query('user');
+        @endphp
+
         <div style="cursor: pointer;" onclick="window.location.href='{{ url('/landing') }}'">
             <img src="{{ asset('imgs/info.png') }}" alt="CVSU-Tanza">
             <p>CVSU-Tanza</p>
@@ -185,14 +188,18 @@
             <img src="{{ asset('imgs/class.png') }}" alt="CVSU-Tanza">
             <p>Class Schedule</p>
         </div>
+        @if($user == 'faculty')
         <div style="cursor: pointer;" onclick="window.location.href='{{ url('/dtr') }}'">
             <img src="{{ asset('imgs/dtr.png') }}" alt="CVSU-Tanza">
             <p>DTR</p>
         </div>
-        <div style="cursor: pointer;" onclick="window.location.href='{{ url('/organization') }}'">
+        @endif
+        @if($user == 'visitor')
+        <div style="cursor: pointer;" onclick="window.location.href='{{ url('/faqs') }}'">
             <img src="{{ asset('imgs/question.png') }}" alt="CVSU-Tanza">
             <p>FAQ's</p>
         </div>
+        @endif
     </div>
 </div>
 </body>

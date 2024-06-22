@@ -3,7 +3,7 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-11">
-            <div class="card">
+            <div class="card" style="background-color: rgba(223, 205, 235, 0.466);">
                 <div class="card-header" style="background-color: #AD88C6;">
                     <div class="row">
                         <div class="col-md-9">
@@ -20,11 +20,11 @@
                     @csrf
                     @if (Auth::user()->designation == "Curriculum" || Auth::user()->designation == "Admin")
                     <div class="card-body">
-                        <div class="card">
-                            <div class="card-header" style="background-color: #AD88C6;">
+                        <div class="card" style="background-color: rgba(223, 205, 235, 0.8);">
+                            <div class="card-header" style="background-color: rgba(223, 205, 235, 0.8);">
                                 I. Curriculum
                             </div>
-                            <div class="card-body">
+                            <div class="card-body" >
                                 <br>
                                 <h6 class="card-title">&nbsp&nbsp&nbspA. Accreditation</h6>
                                 <table id="IA" class="table">
@@ -87,8 +87,8 @@
                     -->
                     @if (Auth::user()->designation == "OSAs" || Auth::user()->designation == "Admin")
                     <div class="card-body">
-                        <div class="card">
-                            <div class="card-header" style="background-color: #AD88C6;">
+                        <div class="card" style="background-color: rgba(223, 205, 235, 0.8);">
+                            <div class="card-header" style="background-color: rgba(223, 205, 235, 0.8);">
                                 II. Student Profile
                             </div>
                             <div class="card-body">
@@ -228,8 +228,8 @@
                     -----------------------------------------------------Faculty ------------------------------------------------------
                     -->
                     <div class="card-body">
-                        <div class="card">
-                            <div class="card-header" style="background-color: #AD88C6;">
+                        <div class="card" style="background-color: rgba(223, 205, 235, 0.8);">
+                            <div class="card-header" style="background-color: rgba(223, 205, 235, 0.8);">
                                 III. Faculty and Staff Profile
                             </div>
                             <div class="card-body">
@@ -430,8 +430,8 @@
 
                     @if (Auth::user()->designation == "OSAs" || Auth::user()->designation == "Admin")
                     <div class="card-body">
-                        <div class="card">
-                            <div class="card-header" style="background-color: #AD88C6;">
+                        <div class="card" style="background-color: rgba(223, 205, 235, 0.8);">
+                            <div class="card-header" style="background-color: rgba(223, 205, 235, 0.8);">
                                 IV. Student Development
                             </div>
                             <div class="card-body">
@@ -456,8 +456,8 @@
 
 
                     <div class="card-body">
-                        <div class="card">
-                            <div class="card-header" style="background-color: #AD88C6;">
+                        <div class="card" style="background-color: rgba(223, 205, 235, 0.8);">
+                            <div class="card-header" style="background-color: rgba(223, 205, 235, 0.8);">
                                 V. Research
                             </div>
                             <div class="card-body">
@@ -521,8 +521,8 @@
 
                     @if (Auth::user()->designation == "Extension" || Auth::user()->designation == "Admin")
                     <div class="card-body">
-                        <div class="card">
-                            <div class="card-header" style="background-color: #AD88C6;">
+                        <div class="card" style="background-color: rgba(223, 205, 235, 0.8);">
+                            <div class="card-header" style="background-color: rgba(223, 205, 235, 0.8);">
                                 VI. Extension
                             </div>
                             <div class="card-body">
@@ -573,8 +573,8 @@
 
                     @if (Auth::user()->designation == "EBA" || Auth::user()->designation == "Admin")
                     <div class="card-body">
-                        <div class="card">
-                            <div class="card-header" style="background-color: #AD88C6;">
+                        <div class="card" style="background-color: rgba(223, 205, 235, 0.8);">
+                            <div class="card-header" style="background-color: rgba(223, 205, 235, 0.8);">
                                 VII. Linkages and Fund Generation
                             </div>
                             <div class="card-body">
@@ -621,8 +621,8 @@
 
                     @if(Auth::user()->designation == "Custodian" || Auth::user()->designation == "Admin")
                     <div class="card-body">
-                        <div class="card">
-                            <div class="card-header" style="background-color: #AD88C6;">
+                        <div class="card" style="background-color: rgba(223, 205, 235, 0.8);">
+                            <div class="card-header" style="background-color: rgba(223, 205, 235, 0.8);">
                                 VIII. Infrastructure Development
                             </div>
                             <div class="card-body">

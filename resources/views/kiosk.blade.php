@@ -38,7 +38,7 @@
         .reveal {
             animation: textReveal 1s ease-in-out;
         }
-        
+
         .btn-container {
             margin-top: 50vh;
             text-align: center;
@@ -94,15 +94,15 @@
 
     <script>
         document.getElementById('faculty-btn').addEventListener('click', function() {
-            window.location.href = '{{ url("/dashboard") }}';
+            window.location.href = '{{ url("/dashboard?user=faculty") }}';
         });
 
         document.getElementById('students-btn').addEventListener('click', function() {
-            window.location.href = '{{ url("/dashboard") }}';
+            window.location.href = '{{ url("/dashboard?user=student") }}';
         });
 
         document.getElementById('visitor-btn').addEventListener('click', function() {
-            window.location.href = '{{ url("/dashboard") }}';
+            window.location.href = '{{ url("/dashboard?user=visitor") }}';
         });
     </script>
 </body>

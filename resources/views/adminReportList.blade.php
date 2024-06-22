@@ -3,14 +3,14 @@
     <div class="row justify-content-center">
         <div class="col-md-11">
             <div class="card">
-                <div class="card-header" style="background-color: #AD88C6;">
+                <div class="card-header" style="background-color: rgba(223, 205, 235, 0.8);">
                     <div class="row">
                         <div class="col-md-9">
                             Submitted Report List
                         </div>
                     </div>
                 </div>
-                <div class="card">
+                <div class="card" style="background-color: rgba(223, 205, 235, 0.8);">
                     <div class="card-header">
                         <ul class="nav nav-tabs card-header-tabs" id="admin-report-list" role="tablist">
                             <li class="nav-item">

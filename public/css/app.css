@@ -11961,4 +11961,7 @@ textarea.form-control-lg {
     background-color: #ADD8E6; /* Light blue color */
 }
 
-
+.card {
+    background-color: rgba(255, 255, 255, 0.8);
+    border: none;
+}

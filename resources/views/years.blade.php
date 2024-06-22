@@ -2,16 +2,19 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-15">
-            <div class="card">
+            <div class="card" style="background-color: rgba(223, 205, 235, 0.8);"> <!-- Semi-transparent purple background -->
                 <div class="card-header" style="background-color: #AD88C6;">
                     <li class="nav-item nav-link text-black">{{ __('Year and Quarter Management') }}</li>
                 </div>
                 <div class="card-body">
-                    <!-- <div class="hidden fixed top-0 right-0 sm:block"> -->
+                    {{-- <!-- <div class="hidden fixed top-0 right-0 sm:block"> -->
                         <ul class="list-group list-group-flush">
                             <li class="list-group-item"><a class="btn btn-primary float-end" href="{{ route('add.year') }}" role="button"> Add Year</a></li>
                         </ul>
-                    <!-- </div> -->
+                    <!-- </div> --> --}}
+                    <div class="text-end mt-3">
+                        <a class="btn btn-primary" href="{{ route('add.year') }}" role="button">Add Year</a>
+                    </div>
 
                     @if($years->isEmpty())
                         No registered faculty
