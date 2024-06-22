@@ -41,69 +41,34 @@
         .wrapper {
             display: flex;
             flex-direction: column;
-            align-items: flex-end;
+            align-items: center;
             width: 100%;
             padding: 20px;
             box-sizing: border-box;
         }
 
-        .search-container {
-            display: flex;
-            margin-right: 90px;
-        }
-
-        .search-container input {
-            background-color: #ffffff;
-            padding: 10px;
-            width: 150px;
-            border: 1px solid #000000;
-            border-radius: 5px 0 0 5px;
-            padding-left: 35px; /* Add padding for the search icon */
-            background: url('{{ asset('imgs/search.png') }}') no-repeat 10px center;
-            background-size: 20px;
-            -webkit-appearance: none; /* Remove the default arrow in Webkit browsers */
-            -moz-appearance: none; /* Remove the default arrow in Firefox */
-            appearance: none; /* Remove the default arrow in standard browsers */
-        }
-
-        .search-container button {
-            padding: 10px;
-            border: 1px solid #000000;
-            background-color: #ffffff;
-            border-left: none;
-            border-radius: 0 5px 5px 0;
-            cursor: pointer;
-        }
-
-        .search-container button img {
-            width: 20px;
-            height: 20px;
-        }
-
         .container {
-            background-color: #e2b7ec; /* Slightly darker purple */
-            border-radius: 10px;
-            padding: 20px;
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 20px;
-            column-gap: 200px;
             margin-top: 20px; /* Add some margin to avoid overlap with search bar */
+            text-align: center;
         }
 
-        .container div {
+        .container div, .container a {
             background-color: #ffffff;
             border-radius: 10px;
             padding: 20px;
-            text-align: center;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-decoration: none; /* Remove underline from links */
+            color: inherit; /* Inherit text color */
         }
 
-        .container div img {
+        .container div img, .container a img {
             width: 50px;
             height: 50px;
             margin-bottom: 10px;
@@ -113,45 +78,32 @@
         @media (max-width: 1200px) {
             .container {
                 grid-template-columns: repeat(2, 1fr);
-                column-gap: 50px;
             }
         }
 
         @media (max-width: 768px) {
             .container {
                 grid-template-columns: 1fr;
-                gap: 10px;
-                column-gap: 20px;
             }
+        }
 
-            .search-container {
-                width: 100%;
-                justify-content: center;
-                margin-bottom: 10px;
-            }
-
-            .search-container input {
-                width: 70%;
-            }
-
-            .search-container button {
-                width: 30%;
-            }
+        .stakeholders-feedback {
+            margin-top: 20px;
+            cursor: pointer;
+            justify-self: center;
+            grid-column: 1 / -1; /* Ensure the link spans all columns */
         }
     </style>
 </head>
 
 <body>
 <div class="wrapper">
-    <div class="search-container">
-        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-    </div>
     <div class="container">
         @php
             $user = request()->query('user');
         @endphp
 
+        @if($user == 'faculty' || $user == 'student')
         <div style="cursor: pointer;" onclick="window.location.href='{{ url('/landing') }}'">
             <img src="{{ asset('imgs/info.png') }}" alt="CVSU-Tanza">
             <p>CVSU-Tanza</p>
@@ -188,17 +140,20 @@
             <img src="{{ asset('imgs/class.png') }}" alt="CVSU-Tanza">
             <p>Class Schedule</p>
         </div>
+        @endif
+
         @if($user == 'faculty')
         <div style="cursor: pointer;" onclick="window.location.href='{{ url('/dtr') }}'">
             <img src="{{ asset('imgs/dtr.png') }}" alt="CVSU-Tanza">
             <p>DTR</p>
         </div>
         @endif
+
         @if($user == 'visitor')
-        <div style="cursor: pointer;" onclick="window.location.href='{{ url('/faqs') }}'">
+        <a class="stakeholders-feedback" onclick="window.location.href='{{ url('/faqs') }}'">
             <img src="{{ asset('imgs/question.png') }}" alt="CVSU-Tanza">
-            <p>FAQ's</p>
-        </div>
+            <p>Stakeholders Feedback</p>
+        </a>
         @endif
     </div>
 </div>

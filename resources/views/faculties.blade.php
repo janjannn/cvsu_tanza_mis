@@ -1,6 +1,6 @@
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-11">
+        <div class="col-md-15">
             <div class="card" style="background-color: rgba(223, 205, 235, 0.8);"> <!-- Semi-transparent purple background -->
                 <div class="card-header" style="background-color: #AD88C6;">
                     <li class="nav-item nav-link text-black">{{ __('List of Faculties') }}</li>
