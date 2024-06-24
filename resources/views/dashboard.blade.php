@@ -50,7 +50,7 @@
         .container {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
+            gap: 50px;
             margin-top: 20px; /* Add some margin to avoid overlap with search bar */
             text-align: center;
         }
@@ -116,25 +116,17 @@
             <img src="{{ asset('imgs/org.png') }}" alt="CVSU-Tanza">
             <p>Organizations</p>
         </div>
-        <div style="cursor: pointer;" onclick="window.location.href='{{ url('/organization') }}'">
+        <div style="cursor: pointer;" onclick="window.location.href='{{ url('/academic') }}'">
             <img src="{{ asset('imgs/acad.png') }}" alt="CVSU-Tanza">
             <p>Academic</p>
         </div>
-        <div style="cursor: pointer;" onclick="window.location.href='{{ url('/organization') }}'">
+        <div style="cursor: pointer;" onclick="window.location.href='{{ url('/news') }}'">
             <img src="{{ asset('imgs/mega.png') }}" alt="CVSU-Tanza">
-            <p>News</p>
+            <p>News and Announcements</p>
         </div>
-        <div style="cursor: pointer;" onclick="window.location.href='{{ url('/organization') }}'">
-            <img src="{{ asset('imgs/announce.png') }}" alt="CVSU-Tanza">
-            <p>Announcement</p>
-        </div>
-        <div style="cursor: pointer;" onclick="window.location.href='{{ url('/organization') }}'">
+        <div style="cursor: pointer;" onclick="window.location.href='{{ url('/seminars') }}'">
             <img src="{{ asset('imgs/seminar.png') }}" alt="CVSU-Tanza">
-            <p>Seminars</p>
-        </div>
-        <div style="cursor: pointer;" onclick="window.location.href='{{ url('/organization') }}'">
-            <img src="{{ asset('imgs/training.png') }}" alt="CVSU-Tanza">
-            <p>Trainings</p>
+            <p>Seminars and Trainings</p>
         </div>
         <div style="cursor: pointer;" onclick="window.location.href='{{ url('/organization') }}'">
             <img src="{{ asset('imgs/class.png') }}" alt="CVSU-Tanza">

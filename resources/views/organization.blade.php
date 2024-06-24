@@ -26,7 +26,7 @@
         .container {
             text-align: center;
             width: 100%;
-            max-width: 1500px;
+            max-width: 1400px;
         }
         h1 {
             font-size: 2.5rem;

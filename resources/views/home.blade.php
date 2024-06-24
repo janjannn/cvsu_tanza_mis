@@ -68,7 +68,7 @@
                 break;
             case 'print_report':
                 dashboardTitle.innerText = 'Print Report';
-                //fetchContent('');
+                fetchContent('{{ route('print') }}');
                 break;
             case 'academic_year':
                 dashboardTitle.innerText = 'Set Academic Year/Quarter';

@@ -42,6 +42,16 @@ Route::get('/map', function () {
 Route::get('/org', function () {
     return view('org');
 });
+Route::get('/academic', function () {
+    return view('academic');
+});
+Route::get('/news', function () {
+    return view('news');
+});
+Route::get('/seminars', function () {
+    return view('seminars');
+});
+
 Route::get('/dtr', function () {
     return view('dtr');
 });
@@ -51,6 +61,8 @@ Route::get('/faqs', function () {
     return view('faqs');
 });
 
+Route::get('/feedback', [FeedbackController::class, 'create'])->name('feedback.create');
+Route::post('/feedback', [FeedbackController::class, 'store'])->name('feedback.store');
 
 
 // TimeController routes
@@ -104,3 +116,6 @@ Route::get('/report/view/{id}', [App\Http\Controllers\ReportController::class, '
 
 // ->name('home')->middleware('is_user', 'verified');
 // ->name('year')->middleware('is_admin');
+
+// print
+Route::get('/print', [App\Http\Controllers\ReportController::class, 'print_report'])->name('print')->middleware('is_admin');

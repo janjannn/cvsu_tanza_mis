@@ -102,7 +102,7 @@ class ReportController extends Controller
             // ->get();
 
         $name = Auth::user()->name;
-       
+
         $activeUserID = DB::table('users')
             ->where([
                 ['name', '=', $name],
@@ -207,19 +207,19 @@ class ReportController extends Controller
         //Scholarships_Students Table Update
         if($request->academic_IID == null) $academic = 0;
         else $academic = $request->academic_IID;
-        
+
         if($request->assistance_IID == null) $assistance = 0;
         else $assistance = $request->assistance_IID;
 
         if($request->government_IID == null) $government = 0;
         else $government = $request->government_IID;
-        
+
         if($request->service_IID == null) $service = 0;
         else $service = $request->service_IID;
-        
+
         if($request->government_IID == null) $private = 0;
         else $private = $request->government_IID;
-        
+
         DB::table('scholarships_student')->insert([
             'uid' => $uid,
             'year' => $activeYear,
@@ -373,7 +373,7 @@ class ReportController extends Controller
 
 
         //--------------------------------------Extension-------------------------------
-        
+
         // Extension Project Table Update
         if($request->name_VIA != null) {
             foreach($request->name_VIA as $index => $id) {
@@ -436,7 +436,7 @@ class ReportController extends Controller
                     'year' => $activeYear,
                     'infrastructure' => $request->infrastructure_VIIIA[$index],
                     'percentage' => $request->percentage_VIIIA[$index],
-                ]); 
+                ]);
             }
         }
 
@@ -452,7 +452,7 @@ class ReportController extends Controller
     function viewSubmittedReport() {
         global $data;
 
-        /* current format of the data 
+        /* current format of the data
         $data = array (
             'user1' => array(
                     'reports' => [['value1', 'value2'], ['value2']],
@@ -490,7 +490,7 @@ class ReportController extends Controller
                 }
             }
         }
-        
+
 
         return view('adminReportList', ['reports' => $reports, 'users' => $users, 'years' => $quarters, 'data' => $data]);
     }
@@ -541,8 +541,8 @@ class ReportController extends Controller
             ->get('designation');
         $userDesignation = $userDesignation[0]->designation;
 
-        return view('viewSpecificReport', ['program_IA' => $program_IA, 
-            'program_IB' => $program_IB, 
+        return view('viewSpecificReport', ['program_IA' => $program_IA,
+            'program_IB' => $program_IB,
             'program_IC' => $program_IC,
             'program_IIA' => $program_IIA,
             'name_IIB' => $name_IIB,
@@ -571,7 +571,7 @@ class ReportController extends Controller
     function getData($table, $id){
         $uid = DB::table('submission')
             ->where('id', '=', $id)
-            ->get('uid');  
+            ->get('uid');
 
         $uid = $uid[0]->uid;
 
@@ -585,7 +585,7 @@ class ReportController extends Controller
         $data = DB::table($table)
             ->where([
                 ['uid', '=', $uid],
-                ['year', '=', $year]  
+                ['year', '=', $year]
                 ])
             ->get();
 
