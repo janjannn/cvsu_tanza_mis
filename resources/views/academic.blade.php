@@ -171,6 +171,58 @@
             float: right;
             color: rgb(70, 70, 70);
         }
+
+        .containerrr {
+            text-align: center;
+            margin: 20px;
+        }
+        h1 {
+            font-size: 2.5em;
+            font-weight: 500;
+            margin-bottom: 20px;
+            margin-top: 50px;
+            text-transform: uppercase;
+        }
+        h2 {
+            font-size: 2em;
+            font-weight: 500;
+            margin-bottom: 30px;
+        }
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            justify-items: center;
+        }
+        .card {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 280px;
+            padding: 60px;
+            text-align: center;
+            height: 340px;
+        }
+        .card img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+        }
+        .card h3 {
+            font-size: 1.5em;
+            font-weight: 500;
+            margin: 0;
+        }
+        .card p {
+            font-size: 1.5em;
+            font-weight: 400;
+            margin: 5px 0;
+        }
+        .card .consultation-hour {
+            font-size:1em;
+            font-weight: 400;
+            color: #333;
+        }
     </style>
 </head>
 <body>
@@ -355,6 +407,67 @@
                     <li>Payment of fees for paying students (Midterm Examination) (2nd payment) <span>April 15-18, 2024</span></li>
                     <li style="margin-top: 40px; font-size: 1.2rem; font-weight: 600">Midterm Examination <span style="font-size: 1rem; font-weight: 400;">April 22, 2024</span></li>
                 </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="containerrr">
+        <h1>Information Technology</h1>
+        <h2>Instructors</h2>
+        <div class="card-grid">
+            <div class="card">
+                <img src="imgs/logoto.jpg" alt="Instructor Photo">
+                <h3>Name</h3>
+                <p>Consultation Hour</p>
+                <p class="consultation-hour">Mon - 10:00 - 11:30 AM<br>Thu - 10:00 - 11:30 AM</p>
+            </div>
+            <div class="card">
+                <img src="imgs/logoto.jpg" alt="Instructor Photo">
+                <h3>Name</h3>
+                <p>Consultation Hour</p>
+                <p class="consultation-hour">Mon - 10:00 - 11:30 AM<br>Thu - 10:00 - 11:30 AM</p>
+            </div>
+            <div class="card">
+                <img src="imgs/logoto.jpg" alt="Instructor Photo">
+                <h3>Name</h3>
+                <p>Consultation Hour</p>
+                <p class="consultation-hour">Mon - 10:00 - 11:30 AM<br>Thu - 10:00 - 11:30 AM</p>
+            </div>
+            <div class="card">
+                <img src="imgs/logoto.jpg" alt="Instructor Photo">
+                <h3>Name</h3>
+                <p>Consultation Hour</p>
+                <p class="consultation-hour">Mon - 10:00 - 11:30 AM<br>Thu - 10:00 - 11:30 AM</p>
+            </div>
+            <div class="card">
+                <img src="imgs/logoto.jpg" alt="Instructor Photo">
+                <h3>Name</h3>
+                <p>Consultation Hour</p>
+                <p class="consultation-hour">Mon - 10:00 - 11:30 AM<br>Thu - 10:00 - 11:30 AM</p>
+            </div>
+            <div class="card">
+                <img src="imgs/logoto.jpg" alt="Instructor Photo">
+                <h3>Name</h3>
+                <p>Consultation Hour</p>
+                <p class="consultation-hour">Mon - 10:00 - 11:30 AM<br>Thu - 10:00 - 11:30 AM</p>
+            </div>
+            <div class="card">
+                <img src="imgs/logoto.jpg" alt="Instructor Photo">
+                <h3>Name</h3>
+                <p>Consultation Hour</p>
+                <p class="consultation-hour">Mon - 10:00 - 11:30 AM<br>Thu - 10:00 - 11:30 AM</p>
+            </div>
+            <div class="card">
+                <img src="imgs/logoto.jpg" alt="Instructor Photo">
+                <h3>Name</h3>
+                <p>Consultation Hour</p>
+                <p class="consultation-hour">Mon - 10:00 - 11:30 AM<br>Thu - 10:00 - 11:30 AM</p>
+            </div>
+            <div class="card">
+                <img src="imgs/logoto.jpg" alt="Instructor Photo">
+                <h3>Name</h3>
+                <p>Consultation Hour</p>
+                <p class="consultation-hour">Mon - 10:00 - 11:30 AM<br>Thu - 10:00 - 11:30 AM</p>
             </div>
         </div>
     </div>

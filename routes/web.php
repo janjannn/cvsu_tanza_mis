@@ -1,5 +1,5 @@
 <?php
-
+use App\Http\Controllers\FeedbackController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TimeController;  // Add this line to import TimeController
 
@@ -51,7 +51,10 @@ Route::get('/news', function () {
 Route::get('/seminars', function () {
     return view('seminars');
 });
-
+Route::get('/class', function () {
+    return view('class');
+});
+//dtr
 Route::get('/dtr', function () {
     return view('dtr');
 });
@@ -61,8 +64,9 @@ Route::get('/faqs', function () {
     return view('faqs');
 });
 
-Route::get('/feedback', [FeedbackController::class, 'create'])->name('feedback.create');
-Route::post('/feedback', [FeedbackController::class, 'store'])->name('feedback.store');
+Route::get('/feedback/create', [FeedbackController::class, 'create'])->name('feedback.create');
+Route::post('/feedback/store', [FeedbackController::class, 'store'])->name('feedback.store');
+
 
 
 // TimeController routes

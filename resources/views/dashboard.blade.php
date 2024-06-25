@@ -128,7 +128,7 @@
             <img src="{{ asset('imgs/seminar.png') }}" alt="CVSU-Tanza">
             <p>Seminars and Trainings</p>
         </div>
-        <div style="cursor: pointer;" onclick="window.location.href='{{ url('/organization') }}'">
+        <div style="cursor: pointer;" onclick="window.location.href='{{ url('/class') }}'">
             <img src="{{ asset('imgs/class.png') }}" alt="CVSU-Tanza">
             <p>Class Schedule</p>
         </div>

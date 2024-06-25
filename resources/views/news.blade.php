@@ -39,13 +39,19 @@
         .image-item {
             text-align: center;
             flex: 1 1 300px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
         .image-item img {
             width: 430px;
             height: 430px;
             object-fit: cover;
             border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            box-shadow: -10px 10px 20px rgba(61, 61, 61, 0.9);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .image-item:hover img {
+            transform: scale(1.05);
+            box-shadow: -15px 15px 30px rgba(61, 61, 61, 0.9);
         }
         .image-item p {
             margin-top: 10px;
