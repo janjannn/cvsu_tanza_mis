@@ -27,6 +27,7 @@
         h1 {
             margin: 20px 0;
             font-size: 2.5em;
+            font-weight: 500;
             color: #333;
             text-align: center;
         }
@@ -67,6 +68,7 @@
         }
         .profile h2, .top-profile h2 {
             font-size: 1.5em;
+            font-weight: 500;
             margin: 10px 0 5px;
         }
         .profile p, .top-profile p {
@@ -104,7 +106,7 @@
             <h2>Name</h2>
             <p>Designation</p>
         </div>
-        
+
         <!-- Add more profiles as needed -->
     </div>
 </body>

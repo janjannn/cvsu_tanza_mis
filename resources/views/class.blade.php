@@ -33,6 +33,7 @@
             font-weight: 500;
             color: black;
             margin-bottom: 40px;
+            white-space: nowrap;
         }
         .year {
             background-color: #ffffff;
@@ -48,7 +49,7 @@
 <body>
     <div class="container">
         <h1>Class Schedule</h1>
-        <div class="year" style="cursor: pointer;" onclick="window.location.href='{{ url('https://freyde.github.io/MidtermSchedule2023/MidtermSchedule2023_subgroups_days_horizontal.html?fbclid=IwZXh0bgNhZW0CMTAAAR3S7VuidogYs17FvR6HJQ8FtuovhDYap6tQSozKn2raAZM2COjvEMGbJ2M_aem_2AmawsqTVx3MVqkXOM5IYQ') }}'">View Schedule</div>
+        <div class="year" style="cursor: pointer;" onclick="window.location.href='https://freyde.github.io/MidtermSchedule2023/MidtermSchedule2023_subgroups_days_horizontal.html?fbclid=IwZXh0bgNhZW0CMTAAAR3S7VuidogYs17FvR6HJQ8FtuovhDYap6tQSozKn2raAZM2COjvEMGbJ2M_aem_2AmawsqTVx3MVqkXOM5IYQ'">View Schedule</div>
     </div>
 </body>
 </html>

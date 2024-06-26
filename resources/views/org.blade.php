@@ -29,6 +29,7 @@
         }
         h1 {
             font-size: 2.5rem;
+            font-weight: 500;
             color: black;
             margin-bottom: 20px;
         }
@@ -37,6 +38,7 @@
         }
         .section h2 {
             font-size: 2rem;
+            font-weight: 500;
             color: black;
             margin-bottom: 20px;
         }

@@ -59,14 +59,17 @@
         }
         .card-title {
             font-size: 1.8rem;
-            font-weight: bold;
-            margin-top: 20px;
+            font-weight: 600;
+            margin-top: 10px;
         }
         .card-body {
             flex-grow: 1;
             padding: 20px;
             color: black;
-            overflow-y: auto; /* Add scroll if content overflows */
+            overflow-y: auto;
+        }
+        .card-body p {
+            font-weight: 500;
         }
         .img-fluid {
             max-width: 100%;
@@ -86,17 +89,19 @@
 </head>
 
 <body>
-    
+
     <div class="container">
         <div class="card" style="background-color: #D3A0E5;">
             <div class="card-body">
-                <h class="card-title" onclick="window.location.href='{{ url('/history') }}'" style="cursor: pointer;">History</h4>
+                <h4 class="card-title" onclick="window.location.href='{{ url('/history') }}'" style="cursor: pointer;">History</h4>
+                <br>
                 <p class="card-text" style="font-size: 1.4rem;">The Cavite State University (CvSU) has its humble beginnings in 1906 as the Indang Intermediate School with the American Thomasians as the first teachers. Several transformations in the name of the school took place; Indang Farm School in 1918, Indang Rural High School in 1927, and Don Severino National Agricultural School in 1958. In 1964, the school was converted into a State College by virtue of Republic Act 3917 and became known as Don Severino Agricultural College (DSAC).</p>
             </div>
         </div>
         <div class="card" style="background-color: #C4A7E7;">
             <div class="card-body" onclick="window.location.href='{{ url('/facultymembers') }}'" style="cursor: pointer;">
                 <h4 class="card-title">Faculty And Staff</h4>
+                <br>
                 <div class="row">
                     <div class="col-4">
                         <img src="{{ asset('imgs/tanza.png') }}" alt="Faculty Image" class="img-fluid rounded-circle">
@@ -110,17 +115,18 @@
                         <img src="{{ asset('imgs/tanza.png') }}" alt="Faculty Image" class="img-fluid rounded-circle">
                         <p class="card-text">Name<br>Designation</p>
                     </div>
-                    <!-- Repeat the above div for each faculty member -->
+
                 </div>
             </div>
         </div>
         <div class="card" style="background-color: #D3A0E5;">
             <div class="card-body" onclick="window.location.href='{{ url('/map') }}'" style="cursor: pointer;">
                 <h4 class="card-title">Vicinity Map</h4>
+                <br>
                 <img src="{{ asset('imgs/svm.jpg') }}" alt="Vicinity Map" class="img-fluid">
             </div>
         </div>
     </div>
-    
+
 </body>
 </html>

@@ -27,11 +27,12 @@
         }
         h1 {
             font-size: 2.5em;
+            font-weight: 500;
             color: #333;
         }
         img {
-            width: 100%;
-            height: 100%;
+            width: 75%;
+            height: 70%;
             object-fit: cover;
             margin-top: 20px;
         }
@@ -40,7 +41,7 @@
 <body>
     <div class="content">
         <h1>Vicinity Map</h1>
-        <img src="imgs/map.png" alt="Map Image">
+        <img src="imgs/svm.jpg" alt="Map Image">
     </div>
 </body>
 </html>
