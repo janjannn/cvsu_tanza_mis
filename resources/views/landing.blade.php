@@ -76,6 +76,12 @@
             height: auto;
             margin-bottom: 10px;
         }
+        .img-fluidd {
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 10px;
+            margin-top: 45%;
+        }
         .rounded-circle {
             border-radius: 50%;
         }
@@ -92,15 +98,15 @@
 
     <div class="container">
         <div class="card" style="background-color: #D3A0E5;">
-            <div class="card-body">
-                <h4 class="card-title" onclick="window.location.href='{{ url('/history') }}'" style="cursor: pointer;">History</h4>
+            <div class="card-body" onclick="window.location.href='{{ url('/history') }}'" style="cursor: pointer;">
+                <h4 class="card-title">History</h4>
                 <br>
                 <p class="card-text" style="font-size: 1.4rem;">The Cavite State University (CvSU) has its humble beginnings in 1906 as the Indang Intermediate School with the American Thomasians as the first teachers. Several transformations in the name of the school took place; Indang Farm School in 1918, Indang Rural High School in 1927, and Don Severino National Agricultural School in 1958. In 1964, the school was converted into a State College by virtue of Republic Act 3917 and became known as Don Severino Agricultural College (DSAC).</p>
             </div>
         </div>
         <div class="card" style="background-color: #C4A7E7;">
             <div class="card-body" onclick="window.location.href='{{ url('/facultymembers') }}'" style="cursor: pointer;">
-                <h4 class="card-title">Faculty And Staff</h4>
+                <h4 class="card-title">Faculty and Staff</h4>
                 <br>
                 <div class="row">
                     <div class="col-4">
@@ -123,7 +129,7 @@
             <div class="card-body" onclick="window.location.href='{{ url('/map') }}'" style="cursor: pointer;">
                 <h4 class="card-title">Vicinity Map</h4>
                 <br>
-                <img src="{{ asset('imgs/svm.jpg') }}" alt="Vicinity Map" class="img-fluid">
+                <img src="{{ asset('imgs/svm.jpg') }}" alt="Vicinity Map" class="img-fluidd">
             </div>
         </div>
     </div>
