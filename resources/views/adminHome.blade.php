@@ -96,7 +96,7 @@
                         <a class="nav-link" href="#" onclick="showDashboardContent('view_form'); return false;">{{ __('View Form') }}</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#" onclick="showDashboardContent('users_sched'); return false;">{{ __('Users Schedule') }}</a>
+                        <a class="nav-link" href="#" onclick="showDashboardContent('user_sched'); return false;">{{ __('Users Schedule') }}</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/kiosk">{{ __('Go to Kiosk') }}</a>
@@ -157,6 +157,10 @@
             case 'view_form':
                 dashboardTitle.innerText = 'View Form';
                 fetchContent('{{ route('report.form') }}');
+                break;
+            case 'user_sched':
+                dashboardTitle.innerText = 'User Sched';
+                fetchContent('{{ route('usersched') }}');
                 break;
             default:
                 dashboardTitle.innerText = 'Dashboard';

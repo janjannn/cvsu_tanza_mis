@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 class DashboardController extends Controller
@@ -14,7 +15,14 @@ class DashboardController extends Controller
     public function index()
     {
         return view('dashboard');
+
     }
 
-    // Add more methods as needed...
+    public function print()
+    {
+        // Logic to fetch data for printing report (if any)
+        $data = []; // Replace with actual data fetching logic if needed
+
+        return view('print_report', ['data' => $data]);
+    }
 }

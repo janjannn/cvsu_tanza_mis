@@ -1,4 +1,3 @@
-
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-11">
@@ -17,79 +16,53 @@
                                 <a class="nav-link active" href="#byfaculty" role="tab" aria-controls="byfaculty" aria-selected="true">By Faculty</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#byquarter" role="tab" aria-controls="byfaculty" aria-selected="true">By Quarter</a>
+                                <a class="nav-link" href="#byquarter" role="tab" aria-controls="byquarter" aria-selected="false">By Quarter</a>
                             </li>
                         </ul>
                     </div>
                     <div class="card-body">
                         <div class="tab-content">
                             <div class="tab-pane active" id="byfaculty" role="tabpanel">
-                                <div class="accordion" id="">
+                                <div class="accordion" id="accordionExample">
 
                                     @foreach ($data as $usersCollection)
-
-                                    <div>
-                                        <div class="accordion-item">
-                                            <h2 class="accordion-header" id="heading{{str_replace(' ','-',$usersCollection['name'])}}">
-                                              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse{{str_replace(' ','-',$usersCollection['name'])}}" aria-expanded="false" aria-controls="collapse{{ str_replace(' ','-',$usersCollection['name']) }}">
+                                    <div class="accordion-item">
+                                        <h2 class="accordion-header" id="heading{{str_replace(' ','-',$usersCollection['name'])}}">
+                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse{{str_replace(' ','-',$usersCollection['name'])}}" aria-expanded="false" aria-controls="collapse{{ str_replace(' ','-',$usersCollection['name']) }}">
                                                 {{$usersCollection['name']}}
-                                              </button>
-                                            </h2>
+                                            </button>
+                                        </h2>
+                                        <div id="collapse{{str_replace(' ','-',$usersCollection['name'])}}" class="accordion-collapse collapse" aria-labelledby="heading{{str_replace(' ','-',$usersCollection['name'])}}" data-bs-parent="#accordionExample">
                                             @if($usersCollection['reports'] != null)
                                                 @foreach ($usersCollection['reports'] as $report)
-                                                    {{-- loop through reports --}}
-                                                    <div id="collapse{{str_replace(' ','-',$usersCollection['name'])}}" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-                                                        <div class="accordion-body">
-                                                            {{-- access the report properties here --}}
-                                                            <a href="/report/view/{{$report->id}}">
-                                                                <strong>
-                                                                {{-- for setting up variables, "" prevents variables from displaying --}}
-                                                                {{
-                                                                    "",
-                                                                    $yearDisplay = $years[($report->year)-1]->year,
-                                                                    $quarterDisplay = $years[($report->year)-1]->quarter,
-                                                                }}
-                                                                Year {{$yearDisplay}} Quarter {{$quarterDisplay}}
-                                                                </strong>
-                                                            </a>
-                                                        </div>
+                                                <div class="accordion-body d-flex justify-content-between">
+                                                    <div>
+                                                        <a href="/report/view/{{$report->id}}">
+                                                            <strong>
+                                                            {{
+                                                                "",
+                                                                $yearDisplay = $years[($report->year)-1]->year,
+                                                                $quarterDisplay = $years[($report->year)-1]->quarter,
+                                                            }}
+                                                            Year {{$yearDisplay}} Quarter {{$quarterDisplay}}
+                                                            </strong>
+                                                        </a>
                                                     </div>
-                                                    @foreach ($report as $item)
-
-                                                    @endforeach
+                                                    <div>
+                                                        <button class="btn btn-danger btn-sm" onclick="deleteReport({{$report->id}})">Delete</button>
+                                                    </div>
+                                                </div>
                                                 @endforeach
                                             @else
-                                                <div id="collapse{{str_replace(' ','-',$usersCollection['name'])}}" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-                                                    <div class="accordion-body">
-                                                        <strong>No report to display</strong>
-                                                    </div>
+                                                <div class="accordion-body">
+                                                    <strong>No report to display</strong>
                                                 </div>
                                             @endif
                                         </div>
                                     </div>
                                     @endforeach
 
-                                   {{--  @foreach ($users as $user)
-
-                                    <div class="accordion-item">
-                                        <h2 class="accordion-header" id="headingOne">
-                                          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse{{$user->id}}" aria-expanded="false" aria-controls="collapseOne">
-                                              {{ $user->name}}
-                                          </button>
-                                        </h2>
-                                        @foreach ($reports as $report)
-                                        <div id="collapse{{$user->id}}" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-                                            <div class="accordion-body">
-                                              <strong>This is the first item's accordion body.</strong> It is shown by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
-                                            </div>
-                                        </div>
-                                        @endforeach
-
-                                    </div>
-                                    @endforeach --}}
-
-
-                                  </div>
+                                </div>
                             </div>
 
                             <div class="tab-pane" id="byquarter" role="tabpanel">
@@ -104,3 +77,24 @@
     </div>
 </div>
 
+<script>
+    function deleteReport(reportId) {
+        // Confirm deletion
+        if (confirm('Are you sure you want to delete this report?')) {
+            // Make a DELETE request to the server
+            fetch('/report/delete/' + reportId, {
+                method: 'DELETE',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                }
+            }).then(response => {
+                if (response.ok) {
+                    location.reload();
+                } else {
+                    alert('Failed to delete report.');
+                }
+            });
+        }
+    }
+</script>

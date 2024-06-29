@@ -54,6 +54,9 @@ Route::get('/seminars', function () {
 Route::get('/class', function () {
     return view('class');
 });
+Route::get('/usersched', function () {
+    return view('usersched');
+});
 //dtr
 Route::get('/dtr', function () {
     return view('dtr');
@@ -64,9 +67,13 @@ Route::get('/faqs', function () {
     return view('faqs');
 });
 
+Route::get('/print-report', 'PrintController@index')->name('print');
+
+
 Route::get('/feedback/create', [FeedbackController::class, 'create'])->name('feedback.create');
 Route::post('/feedback/store', [FeedbackController::class, 'store'])->name('feedback.store');
 
+Route::delete('/reports/{id}', [ReportController::class, 'delete'])->name('reports.delete');
 
 
 // TimeController routes
@@ -121,5 +128,4 @@ Route::get('/report/view/{id}', [App\Http\Controllers\ReportController::class, '
 // ->name('home')->middleware('is_user', 'verified');
 // ->name('year')->middleware('is_admin');
 
-// print
-Route::get('/print', [App\Http\Controllers\ReportController::class, 'print_report'])->name('print')->middleware('is_admin');
+

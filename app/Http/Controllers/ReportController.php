@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
-
+use App\Models\Report;
 class ReportController extends Controller
 {
     function viewFaculty() {
@@ -19,6 +19,17 @@ class ReportController extends Controller
         ->get();
 
         return view('faculties', ['users' => $users, 'designations' => $designations]);
+    }
+        public function delete($id)
+    {
+        try {
+            $report = Report::findOrFail($id);
+            $report->delete();
+
+            return response()->json(['message' => 'Report deleted successfully.'], 200);
+        } catch (\Exception $e) {
+            return response()->json(['message' => 'Failed to delete report.'], 500);
+        }
     }
 
     function deleteFaculty(Request $request) {
