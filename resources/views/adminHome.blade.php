@@ -28,6 +28,7 @@
         bottom: 0;
         width: 220px; /* Adjust width as needed */
         padding-top: 20px; /* Optional: Adjust padding */
+        transition: margin-left 0.3s ease; /* Smooth transition for margin change */
     }
 
     .sidebar-heading {
@@ -51,11 +52,23 @@
     .main-content {
         margin-left: 220px; /* Adjust based on sidebar width */
         padding: 20px; /* Example: Adjust padding */
+        transition: margin-left 0.3s ease; /* Smooth transition for margin change */
     }
 
     .dashboard-title {
         color: white; /* Example: Adjust title color */
         margin-top: 20px; /* Example: Adjust margin */
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 992px) {
+        #sidebar {
+            margin-left: -220px; /* Collapse the sidebar on smaller screens */
+        }
+
+        .main-content {
+            margin-left: 0; /* Adjust main content to start from the left edge */
+        }
     }
 </style>
 
@@ -64,7 +77,7 @@
 <div class="container-fluid">
     <div class="row">
         <!-- Side panel navigation -->
-        <nav id="sidebar" class="col-md-3 col-lg-2 d-md-block bg-light" style="margin-top: 30px; position: fixed;">
+        <nav id="sidebar" class="col-md-3 col-lg-2 d-md-block bg-light">
             <div class="position-sticky">
                 <!-- Dashboard Header -->
                 <h5 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
@@ -96,7 +109,7 @@
                         <a class="nav-link" href="#" onclick="showDashboardContent('view_form'); return false;">{{ __('View Form') }}</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#" onclick="showDashboardContent('user_sched'); return false;">{{ __('Users Schedule') }}</a>
+                        <a class="nav-link" href="#" onclick="showDashboardContent('users_sched'); return false;">{{ __('Users Schedule') }}</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/kiosk">{{ __('Go to Kiosk') }}</a>
@@ -110,10 +123,9 @@
         <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 main-content">
             <h1 class="h2 dashboard-title">Dashboard</h1>
 
-            <!-- <div class="card"> -->
-                <div class="card-body" id="dashboardContent">
-                    @include('stats')
-                <!-- </div> -->
+            <!-- Dashboard Content -->
+            <div id="dashboardContent">
+                @include('stats')
             </div>
         </main>
         <!-- End main content -->
@@ -157,10 +169,6 @@
             case 'view_form':
                 dashboardTitle.innerText = 'View Form';
                 fetchContent('{{ route('report.form') }}');
-                break;
-            case 'user_sched':
-                dashboardTitle.innerText = 'User Sched';
-                fetchContent('{{ route('usersched') }}');
                 break;
             default:
                 dashboardTitle.innerText = 'Dashboard';

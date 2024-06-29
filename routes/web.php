@@ -57,6 +57,9 @@ Route::get('/class', function () {
 Route::get('/usersched', function () {
     return view('usersched');
 });
+Route::get('/email', function () {
+    return view('email');
+});
 //dtr
 Route::get('/dtr', function () {
     return view('dtr');
@@ -103,6 +106,7 @@ Auth::routes(['verify' => true]);
 // Home routes with middleware
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home')->middleware('is_user', 'verified');
 Route::get('admin/home', [App\Http\Controllers\HomeController::class, 'adminHome'])->name('admin.home')->middleware('is_admin');
+
 
 // Faculty routes with middleware
 Route::get('/faculties', [App\Http\Controllers\ReportController::class, 'viewFaculty'])->name('faculties')->middleware('is_admin');
