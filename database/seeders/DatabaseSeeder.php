@@ -2,7 +2,7 @@
 
 namespace Database\Seeders;
 
-use App\User;
+use App\Models\User;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -33,7 +33,7 @@ class DatabaseSeeder extends Seeder
                 'designation'=>'none'
             ],
         ];
-  
+
         foreach ($user as $key => $value) {
             User::create($value);
         }
