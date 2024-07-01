@@ -1,5 +1,8 @@
 <?php
 use App\Http\Controllers\FeedbackController;
+use App\Http\Controllers\UserScheduleController;
+use App\Http\Controllers\ReportController;
+use App\Http\Controllers\DTRFormController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TimeController;  // Add this line to import TimeController
 
@@ -69,10 +72,6 @@ Route::get('/faqs', function () {
     return view('faqs');
 });
 
-Route::get('/dtrform/{id}', [TimeController::class, 'showDTRForm'])->name('dtrform');
-
-
-Route::get('/print-report', 'PrintController@index')->name('print');
 
 
 Route::get('/feedback/create', [FeedbackController::class, 'create'])->name('feedback.create');
@@ -108,7 +107,15 @@ Auth::routes(['verify' => true]);
 // Home routes with middleware
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home')->middleware('is_user', 'verified');
 Route::get('admin/home', [App\Http\Controllers\HomeController::class, 'adminHome'])->name('admin.home')->middleware('is_admin');
+Route::get('admin/home', [App\Http\Controllers\HomeController::class, 'adminHome'])->name('admin.home')->middleware('is_admin');
+// print route
+Route::get('/print_report', [ReportController::class, 'printReport'])->name('print.report')->middleware('is_admin');
 
+//usersched
+Route::get('/usersched', [UserScheduleController::class, 'index'])->name('usersched')->middleware('is_admin');
+
+//dtr
+Route::get('/dtrform', [DTRFormController::class, 'index'])->name('dtrform')->middleware('is_admin');
 
 // Faculty routes with middleware
 Route::get('/faculties', [App\Http\Controllers\ReportController::class, 'viewFaculty'])->name('faculties')->middleware('is_admin');

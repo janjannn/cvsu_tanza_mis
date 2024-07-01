@@ -91,7 +91,7 @@
                         <a class="nav-link" href="#" onclick="showDashboardContent('faculties'); return false;">{{ __('View Faculties') }}</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#" onclick="showDashboardContent('print_report'); return false;">{{ __('Print Report') }}</a>
+                        <a class="nav-link" href="/printreport" onclick="showDashboardContent('print_report'); return false;">{{ __('Print Report') }}</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#" onclick="showDashboardContent('academic_year'); return false;">{{ __('Set Academic Year/Quarter') }}</a>
@@ -151,7 +151,7 @@
             break;
         case 'print_report':
             dashboardTitle.innerText = 'Print Report';
-            fetchContent('{{ route('faculties') }}');
+            fetchContent('{{ route('print.report') }}');
             break;
         case 'academic_year':
             dashboardTitle.innerText = 'Set Academic Year/Quarter';
@@ -173,13 +173,14 @@
             dashboardTitle.innerText = 'View Form';
             fetchContent('{{ route('report.form') }}');
             break;
-        case 'dtrform':
-            dashboardTitle.innerText = 'DTR Form';
-            // Fetch the DTR form for the specified user
-            if (userId) {
-                fetchContent('{{ url('dtrform') }}/' + userId);
-            }
-            break;
+        // case 'user_sched':
+        //     dashboardTitle.innerText = 'View Form';
+        //     fetchContent('{{ route('usersched') }}');
+        //     break;
+        // case 'dtrform':
+        //     dashboardTitle.innerText = 'DTR Form';
+        //     fetchContent('{{ route('dtrform') }}');
+        //     break;
         default:
             dashboardTitle.innerText = 'Dashboard';
             displayDashboard();
