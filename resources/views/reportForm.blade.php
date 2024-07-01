@@ -1,4 +1,6 @@
-@extends('layouts.app')
+@if(Auth::user()->designation == 'User')
+    @extends('layouts.app')
+@endif
 
 <div class="container">
     <div class="row justify-content-center">
@@ -662,5 +664,3 @@
         </div>
     </div>
 </div>
-
-

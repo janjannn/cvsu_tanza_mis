@@ -3,79 +3,100 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Seminars and Trainings</title>
+    <title>Seminar and Training</title>
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 
     <style>
         body {
-            font-family: Poppins, sans-serif;
-            background-color: #D5A8E0;
+            font-family: 'Poppins', sans-serif;
+            background-color: #f4f4f4;
             margin: 0;
             padding: 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
         }
         .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+        }
+        .title {
             text-align: center;
-            margin: 20px;
-        }
-        h1 {
-            font-size: 2.2em;
+            background-color: #773ea8;
+            color: #fff;
+            padding: 20px;
+            font-size: 2em;
             font-weight: 500;
-            margin-bottom: 45px;
+            margin: 20px 0;
+            border-radius: 5px;
+            border: 4px solid #C9A2ED;
         }
-        .image-gallery {
+        .seminar {
             display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 150px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1), 5px 5px 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            overflow: hidden;
         }
-        .image-item {
-            text-align: center;
-            flex: 1 1 300px;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        .image-item img {
-            width: 430px;
-            height: 430px;
+        .seminar img {
+            width: 40%;
             object-fit: cover;
-            border-radius: 10px;
-            box-shadow: -10px 10px 20px rgba(61, 61, 61, 0.9);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
-        .image-item:hover img {
-            transform: scale(1.05);
-            box-shadow: -15px 15px 30px rgba(61, 61, 61, 0.9);
+        .seminar-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 20px;
+            flex: 1;
         }
-        .image-item p {
-            margin-top: 10px;
-            font-size: 1.4em;
+        .seminar-title {
             font-weight: 500;
-            color: #000000;
-            max-width: 430px;
-            margin-left: auto;
-            margin-right: auto;
+            font-size: 2em;
+            margin: 0 0 10px 0;
+        }
+        .seminar-desc {
+            font-size: 1.5em;
+            font-weight: 300;
+            color: #333;
+        }
+        .seminar-date {
+            font-weight: 500;
+            color: #888;
+            margin-top: 10px;
+        }
+        .divider {
+            height: 1px;
+            background-color: #e8e8e8;
+            margin: 20px 0;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Seminars and Trainings</h1>
-        <div class="image-gallery">
-            <div class="image-item">
-                <img src="imgs/logoto.jpg" alt="Image 1">
-                <p>BUHAY VIRTUAL ASSISTANT:A seminar series on Excelling Virtual Workforce 2024</p>
+        <div class="title">Seminar and Training</div>
+        <div class="seminar">
+            <div class="seminar-content">
+                <div>
+                    <div class="seminar-title">BUHAY VIRTUAL ASSISTANT: A seminar series on Excelling Virtual Workforce 2024</div>
+                    <div class="seminar-desc">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud ."</div>
+                </div>
+                <div class="seminar-date">July 27, 2024</div>
             </div>
-            <div class="image-item">
-                <img src="imgs/logoto.jpg" alt="Image 2">
-                <p>Leadership Empowerment and Advocacy Development 2023</p>
+            <img src="imgs/logoto.jpg" alt="BUHAY VIRTUAL ASSISTANT">
+        </div>
+        <div class="divider"></div>
+        <div class="seminar">
+            <div class="seminar-content">
+                <div>
+                    <div class="seminar-title">Leadership Empowerment and Advocacy Development 2023</div>
+                    <div class="seminar-desc">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis."</div>
+                </div>
+                <div class="seminar-date">July 27, 2024</div>
             </div>
+            <img src="imgs/logoto.jpg" alt="Leadership Empowerment">
         </div>
     </div>
 </body>

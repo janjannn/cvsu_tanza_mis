@@ -3,9 +3,17 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Models\User;
 class TimeController extends Controller
 {
+    public function showDTRForm($id)
+    {
+        $user = User::findOrFail($id);
+        $dtr = $user->dtr; // Fetch DTR records
+
+        return view('dtrform', ['user' => $user, 'dtr' => $dtr]);
+    }
+
     public function timeIn($id)
     {
         // Logic to handle time in

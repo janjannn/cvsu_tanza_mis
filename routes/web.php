@@ -64,11 +64,13 @@ Route::get('/email', function () {
 Route::get('/dtr', function () {
     return view('dtr');
 });
-
 // faq routes
 Route::get('/faqs', function () {
     return view('faqs');
 });
+
+Route::get('/dtrform/{id}', [TimeController::class, 'showDTRForm'])->name('dtrform');
+
 
 Route::get('/print-report', 'PrintController@index')->name('print');
 

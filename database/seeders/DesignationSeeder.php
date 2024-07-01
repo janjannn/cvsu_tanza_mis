@@ -21,7 +21,7 @@ class DesignationSeeder extends Seeder
             ],
             [
                 'name' => 'Extension',
-                'value' => 'Extenson'
+                'value' => 'Extension'
             ],
             [
                 'name' => 'Human Resource',

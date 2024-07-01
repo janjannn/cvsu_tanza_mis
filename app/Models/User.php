@@ -45,7 +45,11 @@ class User extends Authenticatable implements MustVerifyEmail
         'email_verified_at' => 'datetime',
     ];
 
-    // protected $attributes = [
-    //     'role' => self::user,
-    // ];
+    /**
+     * Get the DTR records for the user.
+     */
+    public function dtr()
+    {
+        return $this->hasMany(DTR::class);
+    }
 }

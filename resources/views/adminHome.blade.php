@@ -27,7 +27,7 @@
         left: 0;
         bottom: 0;
         width: 220px; /* Adjust width as needed */
-        padding-top: 20px; /* Optional: Adjust padding */
+        padding-top: 50px; /* Optional: Adjust padding */
         transition: margin-left 0.3s ease; /* Smooth transition for margin change */
     }
 
@@ -112,6 +112,9 @@
                         <a class="nav-link" href="#" onclick="showDashboardContent('users_sched'); return false;">{{ __('Users Schedule') }}</a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link" href="#" onclick="showDashboardContent('dtrform'); return false;">{{ __('DTR Form') }}</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" href="/kiosk">{{ __('Go to Kiosk') }}</a>
                     </li>
                 </ul>
@@ -133,80 +136,90 @@
 </div>
 
 <script>
-    function showDashboardContent(content) {
-        let dashboardContent = document.getElementById('dashboardContent');
-        let dashboardTitle = document.querySelector('.dashboard-title');
+    function showDashboardContent(content, userId = null) {
+    let dashboardContent = document.getElementById('dashboardContent');
+    let dashboardTitle = document.querySelector('.dashboard-title');
 
-        // Clear previous content
-        dashboardContent.innerHTML = '';
+    // Clear previous content
+    dashboardContent.innerHTML = '';
 
-        // Update the title inside the <h1> tag based on the content parameter
-        switch(content) {
-            case 'faculties':
-                dashboardTitle.innerText = 'View Faculties';
-                fetchContent('{{ route('faculties') }}');
-                break;
-            case 'print_report':
-                dashboardTitle.innerText = 'Print Report';
-                fetchContent('{{ route('print') }}');
-                break;
-            case 'academic_year':
-                dashboardTitle.innerText = 'Set Academic Year/Quarter';
-                fetchContent('{{ route('years') }}');
-                break;
-            case 'designations':
-                dashboardTitle.innerText = 'Designations';
-                fetchContent('{{ route('designations') }}');
-                break;
-            case 'email_reminder':
-                dashboardTitle.innerText = 'Email Reminder';
-                //fetchContent('');
-                break;
-            case 'view_reports':
-                dashboardTitle.innerText = 'View Reports';
-                fetchContent('{{ route('report.view') }}');
-                break;
-            case 'view_form':
-                dashboardTitle.innerText = 'View Form';
-                fetchContent('{{ route('report.form') }}');
-                break;
-            default:
-                dashboardTitle.innerText = 'Dashboard';
-                displayDashboard();
-        }
+    // Update the title inside the <h1> tag based on the content parameter
+    switch(content) {
+        case 'faculties':
+            dashboardTitle.innerText = 'View Faculties';
+            fetchContent('{{ route('faculties') }}');
+            break;
+        case 'print_report':
+            dashboardTitle.innerText = 'Print Report';
+            fetchContent('{{ route('faculties') }}');
+            break;
+        case 'academic_year':
+            dashboardTitle.innerText = 'Set Academic Year/Quarter';
+            fetchContent('{{ route('years') }}');
+            break;
+        case 'designations':
+            dashboardTitle.innerText = 'Designations';
+            fetchContent('{{ route('designations') }}');
+            break;
+        case 'email_reminder':
+            dashboardTitle.innerText = 'Email Reminder';
+            fetchContent('{{ route('faculties') }}');
+            break;
+        case 'view_reports':
+            dashboardTitle.innerText = 'View Reports';
+            fetchContent('{{ route('report.view') }}');
+            break;
+        case 'view_form':
+            dashboardTitle.innerText = 'View Form';
+            fetchContent('{{ route('report.form') }}');
+            break;
+        case 'dtrform':
+            dashboardTitle.innerText = 'DTR Form';
+            // Fetch the DTR form for the specified user
+            if (userId) {
+                fetchContent('{{ url('dtrform') }}/' + userId);
+            }
+            break;
+        default:
+            dashboardTitle.innerText = 'Dashboard';
+            displayDashboard();
     }
+}
 
-    function fetchContent(url) {
-        fetch(url)
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById('dashboardContent').innerHTML = data;
-            })
-            .catch(error => {
-                console.error('Error:', error);
-            });
-    }
+function fetchContent(url) {
+    fetch(url)
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('dashboardContent').innerHTML = data;
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
+}
 
-    function displayDashboard() {
-        let dashboardContent = document.getElementById('dashboardContent');
-        let dashboardTitle = document.querySelector('.dashboard-title');
-        dashboardTitle.innerText = 'Dashboard';
+function displayDashboard() {
+    let dashboardContent = document.getElementById('dashboardContent');
+    let dashboardTitle = document.querySelector('.dashboard-title');
+    dashboardTitle.innerText = 'Dashboard';
 
-        // Fetch dashboard statistics
-        fetch('{{ route('dashboard.stats') }}')
-            .then(response => response.json())
-            .then(data => {
-                document.getElementById('totalFaculties').innerText = data.totalFaculties;
-                document.getElementById('totalDesignations').innerText = data.totalDesignations;
-                document.getElementById('totalReports').innerText = data.totalReports;
-                document.getElementById('totalForms').innerText = data.totalForms;
-            })
-            .catch(error => {
-                console.error('Error fetching dashboard statistics:', error);
-            });
-    }
+    // Fetch dashboard statistics
+    fetch('{{ route('dashboard.stats') }}')
+        .then(response => response.json())
+        .then(data => {
+            document.getElementById('totalFaculties').innerText = data.totalFaculties;
+            document.getElementById('totalDesignations').innerText = data.totalDesignations;
+            document.getElementById('totalReports').innerText = data.totalReports;
+            document.getElementById('totalForms').innerText = data.totalForms;
+        })
+        .catch(error => {
+            console.error('Error fetching dashboard statistics:', error);
+        });
+}
 
-    // Display the main dashboard by default
-    displayDashboard();
+// Display the main dashboard by default
+displayDashboard();
+
+
+
 </script>
 @endsection
