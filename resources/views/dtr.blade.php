@@ -72,7 +72,17 @@
 </head>
 
 <body>
+
+
     <div class="container">
+
+        @if (session('error'))
+            <div class="mt-4 alert alert-warning alert-dismissible fade show" role="alert">
+                <strong> {{session('error')}}</strong>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        @endif
+
         <div id="app">
             <div class="container btn-container">
                 <button id="timein-btn" class="btn btn-success">Time In</button>
