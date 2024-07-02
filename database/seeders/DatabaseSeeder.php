@@ -19,6 +19,7 @@ class DatabaseSeeder extends Seeder
             [
                 'name'=>'admin',
                 'email'=>'admin@cvsu.edu.ph',
+                'cvsu_id'=>'1',
                 'role'=>'admin',
                 'password'=> bcrypt('admin1234'),
                 'department'=>'DIT',
@@ -27,6 +28,7 @@ class DatabaseSeeder extends Seeder
             [
                 'name'=>'user',
                 'email'=>'user@cvsu.edu.ph',
+                'cvsu_id'=>'2',
                 'role'=>'user',
                 'password'=> bcrypt('user1234'),
                 'department'=>'DAS',
