@@ -115,7 +115,8 @@ Route::get('/print_report', [ReportController::class, 'printReport'])->name('pri
 Route::get('/usersched', [UserScheduleController::class, 'index'])->name('usersched')->middleware('is_admin');
 
 //dtr
-Route::get('/dtrform', [DTRFormController::class, 'index'])->name('dtrform')->middleware('is_admin');
+Route::get('/admin/dtrform', [DTRFormController::class, 'index'])->name('dtrform')->middleware('is_admin');
+Route::get('download-dtr/{userId}', [DTRFormController::class, 'downloadDtr'])->name('download-dtr')->middleware('is_user', 'verified');
 
 // Faculty routes with middleware
 Route::get('/faculties', [App\Http\Controllers\ReportController::class, 'viewFaculty'])->name('faculties')->middleware('is_admin');
