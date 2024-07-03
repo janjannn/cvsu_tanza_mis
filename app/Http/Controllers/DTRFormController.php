@@ -34,7 +34,7 @@ class DTRFormController extends Controller
         }
 
         $pdf = PDF::loadView('dtr_form', [
-            'dtr' => $dtr,
+            'dtr' => $dtr ?? [],
             'user' => $user,
             'month' => $currentMonth->format('M'),
             'inCharge' => 'John Doe',

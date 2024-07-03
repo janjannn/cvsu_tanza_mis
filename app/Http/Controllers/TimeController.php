@@ -94,7 +94,7 @@ class TimeController extends Controller
         }
 
         return view('dtr_report', [
-            'dtr' => $dtr,
+            'dtr' => $dtr ?? [],
             'user' => $user,
             'month' => $currentMonth->format('M'),
             'inCharge' => 'John Doe',
