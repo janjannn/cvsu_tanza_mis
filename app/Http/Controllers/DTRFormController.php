@@ -12,7 +12,7 @@ class DTRFormController extends Controller
     public function index()
     {
 
-        $users = User::all();
+        $users = User::where('role' ,'=','user')->get();
 
         return view('adminDtr', ['users' => $users]);
     }
