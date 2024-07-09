@@ -35,11 +35,41 @@ class Dtr extends Model
     public function getSession($period)
     {
 
-        $sessions = $this->dailySessions->filter(function ($session) use ($period){
+        $sessions = $this->dailySessions->filter(function ($session) use ($period) {
             return $session->time_period === TimePeriod::from($period);
         });
 
         return empty($sessions) ? [] : $sessions->first();
+    }
+
+    public function getTotalWorkedMinutes(): int
+    {
+        $totalMinutes = 0;
+
+        /** @var DailySessions $session */
+        foreach ($this->dailySessions as $session) {
+
+            if (!isset($session->start_time, $session->end_time)) {
+                continue;
+            }
+
+            $start_time = Carbon::parse($session->start_time);
+            $end_time = Carbon::parse($session->end_time);
+
+
+            $totalMinutes += $start_time->diffInMinutes($end_time);
+
+        }
+
+        return $totalMinutes;
+    }
+
+    public function getUndertimeMinutes(): int
+    {
+        $ONE_HOUR = 60;
+        $MAX_WORKED_HOURS = 8;
+
+        return ($MAX_WORKED_HOURS * $ONE_HOUR) - $this->getTotalWorkedMinutes();
     }
 
 }
