@@ -24,9 +24,7 @@
 
 <body>
 
-
 <div class="container">
-
     <div class="p-2 mx-auto" style="max-width: 600px">
         <table class="table table-bordered">
             <tbody>
@@ -42,10 +40,12 @@
                 </td>
             </tr>
             <tr>
-                <td class="text-center" colspan="7">NAME <span class="text-uppercase fw-bold">{{$user->name}}</span></td>
+                <td class="text-center" colspan="7">NAME <span class="text-uppercase fw-bold">{{$user->name}}</span>
+                </td>
             </tr>
             <tr>
-                <td class="text-center" colspan="7">MONTH <span class="text-uppercase fw-bold">{{$month}}</span></td>
+                <td class="text-center" colspan="7">MONTH <span class="text-uppercase fw-bold">{{$month}}</span>
+                </td>
             </tr>
             <tr>
                 <td></td>
@@ -72,42 +72,46 @@
                         @php($afternoonSession = $dtr[$day]->getSession('PM'))
 
                         @if(isset($morningSession))
-                            <td>{{$morningSession->start_time}}</td>
-                            <td>{{$morningSession->end_time}}</td>
+                            <td>{{\Carbon\Carbon::parse($morningSession->start_time)->format('h:i:s')}}</td>
+                            <td>{{\Carbon\Carbon::parse($morningSession->end_time)->format('h:i:s')}}</td>
                         @else
-                            <td></td>
-                            <td></td>
+                            <td class="text-center" >-</td>
+                            <td class="text-center" >-</td>
                         @endif
 
                         @if(isset($afternoonSession))
-                            <td>{{$afternoonSession->start_time}}</td>
-                            <td>{{$afternoonSession->end_time}}</td>
+                            <td>{{\Carbon\Carbon::parse($afternoonSession->start_time)->format('h:i:s')}}</td>
+                            <td>{{\Carbon\Carbon::parse($afternoonSession->end_time)->format('h:i:s')}}</td>
                         @else
-                            <td></td>
-                            <td></td>
+                            <td class="text-center" >-</td>
+                            <td class="text-center" >-</td>
                         @endif
 
-                        <td></td>
-                        <td></td>
+                        @php($underTimeHour = (int) ($dtr[$day]->getUndertimeMinutes() / 60))
+                        @php($underTimeMinutes = ($dtr[$day]->getUndertimeMinutes() % 60))
+
+                        <td> {{ max($underTimeHour,0)  }}</td>
+                        <td> {{ max($underTimeMinutes,0)  }}</td>
                     @else
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <td class="text-center" >-</td>
+                        <td class="text-center" >-</td>
+                        <td class="text-center" >-</td>
+                        <td class="text-center" >-</td>
+                        <td class="text-center" >-</td>
+                        <td class="text-center" >-</td>
                     @endif
                 </tr>
             @endfor
             <tr>
                 <td colspan="5">Total</td>
-                <td></td>
-                <td></td>
+                <td>{{ max((int)($totalWorkedMinutes / 60 ),0)  }}</td>
+                <td>{{ max(($totalWorkedMinutes % 60 ),0)  }}</td>
             </tr>
             <tr>
                 <td colspan="7">
                     <div class="border p-2">
-                        I <strong>CERTIFY</strong> on my honor that the above is a true and correct report of the hours
+                        I <strong>CERTIFY</strong> on my honor that the above is a true and correct report of the
+                        hours
                         of
                         work performed,
                         record of which was made daily at the time of arrival and departure from office.
@@ -132,8 +136,8 @@
             </tbody>
         </table>
     </div>
-
 </div>
+
 
 </body>
 </html>
