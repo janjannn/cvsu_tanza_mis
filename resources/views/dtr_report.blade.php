@@ -58,8 +58,8 @@
                             @endif
 
                             @if(isset($afternoonSession))
-                                <td>{{\Carbon\Carbon::parse($afternoonSession->start_time)->format('h:i:s A')}}</td>
-                                <td>{{\Carbon\Carbon::parse($afternoonSession->end_time)->format('h:i:s A')}}</td>
+                                <td>{{\Carbon\Carbon::parse($afternoonSession->start_time)->format('h:i:s')}}</td>
+                                <td>{{\Carbon\Carbon::parse($afternoonSession->end_time)->format('h:i:s')}}</td>
                             @else
                                 <td></td>
                                 <td></td>
