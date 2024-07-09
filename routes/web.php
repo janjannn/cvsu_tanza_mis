@@ -81,9 +81,9 @@ Route::delete('/reports/{id}', [ReportController::class, 'delete'])->name('repor
 
 
 // TimeController routes
-Route::get('/timein/{id}', [TimeController::class, 'timeIn']);
-Route::get('/timeout/{id}', [TimeController::class, 'timeOut']);
-Route::get('/print-dtr/{id}', [TimeController::class, 'printDTR']);
+Route::get('/timein/{cvsuId}', [TimeController::class, 'timeIn']);
+Route::get('/timeout/{cvsuId}', [TimeController::class, 'timeOut']);
+Route::get('/print-dtr/{cvsuId}', [TimeController::class, 'printDTR']);
 
 // Dashboard stats route
 Route::get('/dashboard/stats', function() {
@@ -138,6 +138,7 @@ Route::get('/report/view', [App\Http\Controllers\ReportController::class, 'viewS
 Route::get('/report/form', [App\Http\Controllers\ReportController::class, 'viewReportForm'])->name('report.form')->middleware('is_user','verified');
 Route::post('/report/save', [App\Http\Controllers\ReportController::class, 'saveReport'])->name('report.save')->middleware('is_user', 'verified');
 Route::get('/report/view/{id}', [App\Http\Controllers\ReportController::class, 'viewSpecificReport'])->name('report.id')->middleware('is_admin', 'verified');
+Route::get('/test', [App\Http\Controllers\DashboardController::class, 'test']);
 
 // ->name('home')->middleware('is_user', 'verified');
 // ->name('year')->middleware('is_admin');
