@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Dtr;
+use App\Actions\DtrReport;
 use App\Models\User;
 use Barryvdh\DomPDF\Facade\Pdf;
 use Carbon\Carbon;
@@ -12,33 +12,21 @@ class DTRFormController extends Controller
     public function index()
     {
 
-        $users = User::where('role' ,'=','user')->get();
+        $users = User::where('role', '=', 'user')->get();
 
         return view('adminDtr', ['users' => $users]);
     }
 
-    public function downloadDtr($userId)
+    public function downloadDtr($userId, DtrReport $dtrReport)
     {
 
         $currentMonth = Carbon::now();
 
         $user = User::where('id', '=', $userId)->firstOrFail();
 
-        $records = Dtr::where('user_id', '=', $user->id)
-            ->whereBetween('date', [$currentMonth->format('Y-m-01'), $currentMonth->format('Y-m-31')])
-            ->get();
+        $userDtr = $dtrReport->handle($currentMonth, $user);
 
-        foreach ($records as $record) {
-            $day = (int)Carbon::parse($record->date)->format('d');
-            $dtr[$day] = $record;
-        }
-
-        $pdf = PDF::loadView('dtr_form', [
-            'dtr' => $dtr ?? [],
-            'user' => $user,
-            'month' => $currentMonth->format('M'),
-            'inCharge' => 'John Doe',
-        ]);
+        $pdf = PDF::loadView('dtr_form', $userDtr);
 
         $pdf->setPaper('A4');
 

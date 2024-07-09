@@ -2,103 +2,56 @@
 
 namespace App\Http\Controllers;
 
-use App\Enums\TimePeriod;
-use App\Models\DailySessions;
-use App\Models\Dtr;
+use App\Actions\DtrReport;
+use App\Actions\DtrTimeIn;
+use App\Actions\DtrTimeOut;
 use Carbon\Carbon;
 use App\Models\User;
-use Illuminate\Support\Facades\DB;
 
 class TimeController extends Controller
 {
-    public function timeIn($id)
+
+    public function timeIn($cvsuId, DtrTimeIn $dtrTimeIn)
     {
         try {
 
-            DB::beginTransaction();
+            $user = User::where('cvsu_id', '=', $cvsuId)->firstOrFail();
 
-            $user = User::where('cvsu_id', '=', $id)->firstOrFail();
+            $dtrTimeIn->handle($user);
 
-            $today = Carbon::now();
-
-            $dtr = Dtr::where('date', '=', $today->format('Y-m-d'))
-                ->where('user_id', '=', $user->id)
-                ->first();
-
-            if (!isset($dtr)) {
-                $dtr = Dtr::create([
-                    'user_id' => $user->id,
-                    'date' => Carbon::now(),
-                ]);
-            }
-
-            $session = DailySessions::create([
-                'dtr_id' => $dtr->id,
-                'start_time' => Carbon::now()->toDate(),
-                'time_period' => TimePeriod::from(Carbon::now()->format('A')),
-            ]);
-
-            DB::commit();
-            return view('timein_success', ['id' => $id]);
+            return view('timein_success', ['id' => $cvsuId]);
         } catch (\Exception $e) {
-            DB::rollBack();
             report($e);
             return redirect('/dtr')->with('error', 'Time In Failed');
         }
     }
 
-    public function timeOut($id)
+    public function timeOut($cvsuId, DtrTimeOut $dtrTimeOut)
     {
         try {
 
-            DB::beginTransaction();
-
-            $user = User::where('cvsu_id', '=', $id)
+            $user = User::where('cvsu_id', '=', $cvsuId)
                 ->firstOrFail();
 
-            $dtr = Dtr::where('date', '=', Carbon::now()->format('Y-m-d'))
-                ->where('user_id', '=', $user->id)
-                ->firstOrFail();
+            $dtrTimeOut->handle($user);
 
-            $record = DailySessions::where('dtr_id', '=', $dtr->id)
-                ->whereNull('end_time')
-                ->firstOrFail();
-
-            $record->end_time = Carbon::now()->toDate();
-            $record->save();
-
-            DB::commit();
-
-            return view('timeout_success', ['id' => $id]);
+            return view('timeout_success', ['id' => $cvsuId]);
         } catch (\Exception $e) {
-            DB::rollBack();
             report($e);
             return redirect('/dtr')->with('error', 'Time Out Failed!');
         }
     }
 
-    public function printDTR($id)
+    public function printDTR($cvsuId, DtrReport $dtrReport)
     {
 
         $currentMonth = Carbon::now();
 
-        $user = User::where('id', '=', $id)->firstOrFail();
+        $user = User::where('cvsu_id', '=', $cvsuId)->firstOrFail();
 
-        $records = Dtr::where('user_id', '=', $user->id)
-            ->whereBetween('date', [$currentMonth->format('Y-m-01'), $currentMonth->format('Y-m-31')])
-            ->get();
+        $userDtr = $dtrReport->handle($currentMonth, $user);
 
-        foreach ($records as $record) {
-            $day = (int)Carbon::parse($record->date)->format('d');
-            $dtr[$day] = $record;
-        }
-
-        return view('dtr_report', [
-            'dtr' => $dtr ?? [],
-            'user' => $user,
-            'month' => $currentMonth->format('M'),
-            'inCharge' => 'John Doe',
-        ]);
+        return view('dtr_report', $userDtr);
     }
 
 }
