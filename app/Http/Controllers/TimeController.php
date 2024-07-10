@@ -2,36 +2,56 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Actions\DtrReport;
+use App\Actions\DtrTimeIn;
+use App\Actions\DtrTimeOut;
+use Carbon\Carbon;
 use App\Models\User;
+
 class TimeController extends Controller
 {
-    public function showDTRForm($id)
-    {
-        $user = User::findOrFail($id);
-        $dtr = $user->dtr; // Fetch DTR records
 
-        return view('dtrform', ['user' => $user, 'dtr' => $dtr]);
+    public function timeIn($cvsuId, DtrTimeIn $dtrTimeIn)
+    {
+        try {
+
+            $user = User::where('cvsu_id', '=', $cvsuId)->firstOrFail();
+
+            $dtrTimeIn->handle($user);
+
+            return view('timein_success', ['id' => $cvsuId]);
+        } catch (\Exception $e) {
+            report($e);
+            return redirect('/dtr')->with('error', 'Time In Failed');
+        }
     }
 
-    public function timeIn($id)
+    public function timeOut($cvsuId, DtrTimeOut $dtrTimeOut)
     {
-        // Logic to handle time in
-        return view('timein_success', ['id' => $id]);
+        try {
+
+            $user = User::where('cvsu_id', '=', $cvsuId)
+                ->firstOrFail();
+
+            $dtrTimeOut->handle($user);
+
+            return view('timeout_success', ['id' => $cvsuId]);
+        } catch (\Exception $e) {
+            report($e);
+            return redirect('/dtr')->with('error', 'Time Out Failed!');
+        }
     }
 
-    public function timeOut($id)
+    public function printDTR($cvsuId, DtrReport $dtrReport)
     {
-        // Logic to handle time out
-        return view('timeout_success', ['id' => $id]);
+
+        $currentMonth = Carbon::now();
+
+        $user = User::where('cvsu_id', '=', $cvsuId)->firstOrFail();
+
+        $userDtr = $dtrReport->handle($currentMonth, $user);
+
+        return view('dtr_report', $userDtr);
     }
 
-    public function printDTR($id)
-    {
-        // Logic to generate and print DTR
-        $user = User::find($id);
-        $dtr = $user->dtr; // Assume there's a relation or method to get DTR
-
-        return view('dtr_report', ['user' => $user, 'dtr' => $dtr]);
-    }
 }
