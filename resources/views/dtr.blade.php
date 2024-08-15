@@ -83,28 +83,23 @@
             </div>
         @endif
 
+        @if (session('message'))
+            <div class="mt-4 alert alert-success alert-dismissible fade show" role="alert">
+                <strong> {{session('message')}}</strong>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        @endif
+
         <div id="app">
             <div class="container btn-container">
-                <button id="timein-btn" class="btn btn-success">Time In</button>
-                <button id="timeout-btn" class="btn btn-success">Time Out</button>
+                <form class="w-25 mx-auto" method="POST" action="/dtr">
+                    @csrf
+                    <label class="form-label text-start">CVSU ID</label>
+                    <input name="cvsuId" type="text" class="form-control">
+                    <button type="submit">Submit</button>
+                </form>
             </div>
         </div>
     </div>
-
-    <script>
-        document.getElementById('timein-btn').addEventListener('click', function() {
-            let id = prompt("Enter your ID number for Time In:");
-            if (id) {
-                window.location.href = '{{ url("/timein") }}/' + id;
-            }
-        });
-
-        document.getElementById('timeout-btn').addEventListener('click', function() {
-            let id = prompt("Enter your ID number for Time Out:");
-            if (id) {
-                window.location.href = '{{ url("/timeout") }}/' + id;
-            }
-        });
-    </script>
 </body>
 </html>

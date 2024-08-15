@@ -72,17 +72,15 @@ Route::get('/faqs', function () {
     return view('faqs');
 });
 
-
+Route::post('/dtr', [TimeController::class, 'index']);
 
 Route::get('/feedback/create', [FeedbackController::class, 'create'])->name('feedback.create');
 Route::post('/feedback/store', [FeedbackController::class, 'store'])->name('feedback.store');
 
 Route::delete('/reports/{id}', [ReportController::class, 'delete'])->name('reports.delete');
 
-
 // TimeController routes
-Route::get('/timein/{cvsuId}', [TimeController::class, 'timeIn']);
-Route::get('/timeout/{cvsuId}', [TimeController::class, 'timeOut']);
+
 Route::get('/print-dtr/{cvsuId}', [TimeController::class, 'printDTR']);
 
 // Dashboard stats route

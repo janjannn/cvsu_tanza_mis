@@ -56,20 +56,23 @@ class Dtr extends Model
             $start_time = Carbon::parse($session->start_time);
             $end_time = Carbon::parse($session->end_time);
 
-
             $totalMinutes += $start_time->diffInMinutes($end_time);
 
         }
 
-        return $totalMinutes;
+        return min($totalMinutes, $this->getMaxWorkHour());
     }
 
     public function getUndertimeMinutes(): int
     {
-        $ONE_HOUR = 60;
-        $MAX_WORKED_HOURS = 8;
+        return $this->getMaxWorkHour() - $this->getTotalWorkedMinutes();
+    }
 
-        return ($MAX_WORKED_HOURS * $ONE_HOUR) - $this->getTotalWorkedMinutes();
+    public function getMaxWorkHour(): int
+    {
+        $ONE_HOUR = 60;
+
+        return $ONE_HOUR * $this->user->getMaxWorkingHour(Carbon::parse($this->date)->dayOfWeek);
     }
 
 }

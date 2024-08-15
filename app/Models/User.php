@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
@@ -52,5 +53,20 @@ class User extends Authenticatable implements MustVerifyEmail
     public function dtr()
     {
         return $this->hasMany(DTR::class);
+    }
+
+    public function schedules(): HasMany
+    {
+        return $this->hasMany(Schedule::class);
+    }
+
+    public function getMaxWorkingHour(int $day): int
+    {
+         $schedule = $this->hasMany(Schedule::class)
+             ->where('day_of_week', $day)
+             ->first();
+
+         return isset($schedule) ? $schedule->max_working_hour : 8;
+
     }
 }
